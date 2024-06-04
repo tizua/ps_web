@@ -1,0 +1,105 @@
+html,body{
+    margin:0;
+    padding:0;
+    background-color: rgb(243, 245, 247);
+}
+
+header{
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    width:100%;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.164);
+}
+
+.mainwrapper{
+    background-color: rgb(255, 255, 255);
+    
+    width:80%;
+    margin:30px auto 30px auto;
+    padding: 50px;
+    border-radius:7px;
+    display: flex;
+    gap: 20px
+
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border:solid 2px rgb(222, 222, 222);
+    border-radius: 7px;
+    padding: 20px;
+}
+
+
+
+
+.s{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+label{
+    margin-bottom: 5px;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+}
+
+.input .container{
+    margin-bottom: 10px;
+}
+
+
+.ingredient{
+    display: flex;
+    flex-direction: column;
+}
+
+.subsikill{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.subsikill .berrieS,.speedB{
+    margin-bottom: 10px;
+}
+
+.personality{
+    display: flex;
+    flex-direction: column;
+}
+
+.personality .speedP,.ingredientP{
+    margin-bottom: 10px;
+}
+
+.buttontext{
+    margin-right: auto;
+    margin-bottom:0px
+}
+
+
+
+h1{
+    font-size: 13px;
+    margin-bottom:5px;
+}
+
+h2{
+    font-size: 13px;
+    margin-bottom:5px;
+}
+
+.output{
+    width:50%;
+    border:solid 2px rgb(222, 222, 222);
+    border-radius: 7px;
+    padding: 20px;
+}
