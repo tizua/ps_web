@@ -306,49 +306,10 @@ label{
    
     .header .title{
         padding: 30px 20px;
-        font-size: 20px;
     }
 
 
-    select{
-        font-size: 16px;
-    }
-
-    html,body{
-        font-size: 16px;
-    }
-
-    h1{
-        font-size: 19px;
-    }
     
-    h2{
-        font-size: 14px;
-
-    }
-
-    .result{
-        font-size: 17px;
-        
-    }
-
-    .result .string{
-        font-size:15px;
-    }
-    
-    .summary{
-        font-size: 15px;
-    }
-
-    .detailslist h3{
-        font-size: 14px;
-    }
-
-    .detailslist p{
-        margin:5px 0px 0px 0px;
-        font-size: 14px;
-    
-    }
    
     
 
