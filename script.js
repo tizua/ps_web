@@ -43,7 +43,7 @@ window.nameinput=()=>{
         if(pokemondatas[i].name===nameVar){
 
             nameflag=1;
-            name.setAttribute("style","width:100px;") 
+            name.setAttribute("style","width:110px;") //selectの幅元に戻す
            
             //食材候補リセット
             let ingredient1 = document.getElementById('ingredient1');
