@@ -7,14 +7,19 @@ html,body{
     margin:0;
     padding:0;
     background-color: rgb(243, 245, 247);
-    font-size: 14px;
+    font-size: 16px;
+    font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
    
     
 }
 
 .top{
-    height:5px;
-    background-color: #1062a4;
+    display: none;
 }
 
 .header{
@@ -46,73 +51,58 @@ html,body{
 
 
 
-
-
 .mainwrapper{
     width:600px;
-    margin:50px auto 50px auto;
+    margin:40px auto;
     display: flex;
     flex-direction: column;
-    gap: 30px
-
+    gap: 30px;
 }
 
-.inputcontainer,.outputcontainer{
-    background-color: rgb(255, 255, 255);
-    padding: 30px;
-    border-radius:7px;
+.inputcontainer{
     display: flex;
     flex-direction: column;
-    gap:15px;
+    gap:5px;
 }
-
-.outputcontainer{
-    margin-bottom: 20px;
-}
-
-
-
 
 .input{
-    display: flex;
-    flex-direction: column;
-    gap:30px;
-    width: 100%;
-
-    border: solid 2px rgb(219, 221, 227);
-    border-radius: 7px;
+    gap: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.164);
     padding: 30px;
-    
-}
-
-.output{
-    width:100%;
-    border:solid 2px rgb(219, 221, 227);
-    border-radius: 7px;
-    padding: 20px 30px 20px 30px;
-   
 }
 
 .s{
-    display: flex;
-    flex-direction: column;
-    gap:10px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom:solid 1px #c1c1c1
 }
 
+
+
+
+.outputcontainer{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.output{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.164);
+    padding: 30px;
+}
 
 
 
 h1{
-    margin:0;
-    font-size: 17px;
-    padding: 0.2em 0.5em;/*上下 左右の余白*/
+    margin:0px 0px 0px 0px;
+    font-size: 18px;
     background: transparent;/*背景透明に*/
     color: #494949;/*文字色*/
-    border-left: solid 5px #1062a4;
 }
-
-
-
 
 h2{
     margin:0;
@@ -120,257 +110,89 @@ h2{
     color: #494949;/*文字色*/
 }
 
-
 select{
     font-size: 13px;
 }
 
 
-label{
-    margin-bottom: 5px;
+
+
+
+
+.name .container select,.ingredient .container select{
+    display: block;
+    width: 100%;
+    
 }
 
 
-.name .container{
+.name .container2{
+    display: flex;
+    
+}
+
+.name .container2 label{
+    width:33.3%
+    
+}
+
+.name .container2 select{
+    display: block;
+    width: 100%;
+    
+}
+
+
+.ingredient,.subskill,.personality{
     display: flex;
     flex-direction: column;
 }
+
 
 
 .ingredient .container{
     display: flex;
-    flex-direction: column;
 }
 
-.subskill .container,.personality .container{
+.ingredient .container label{
+    width:33.3%
+}
+
+
+
+.subskill .container{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
+    gap:10px
 }
 
-.speedP .container,.ingredientP .container{
+
+
+
+.berrieS,.speedB{
+    display: inline-block; 
+    width:fit-content
+}
+
+
+.speedSM,.ingredientSM{
     display: flex;
+    margin:0 auto;
+    width:80%;
+    gap: 70px;
+    
+}
+
+.ingredientSM label:first-child{
+    margin-right:32px;
 }
 
 
 
-
-.buttontext{
-    margin-right: auto;
-    margin-bottom:0px;
-    height:40px;
+.personality .container{
     display: flex;
-    align-items: center;
+    margin:0 auto;
+    gap:50px
 }
 
 
-.button{
-
-	width: 80px;
-    padding: 5px 0px;
-    font-size: 12px;
-	font-weight: bold;
-    border: none;
-    margin-right:auto;
-    
-    text-decoration: none;
-    border-bottom: 3px solid #224b9e;
-	color: white;
-    background-color: #4289c3;
-	border-radius: 5px;
-}
-
-
-.button:hover {
-    margin-top: 2px;
-	border-bottom: 1px solid #0686b2;
-	color: #fff;
-}
-
-
-
-
-
-.result{
-    font-size: 16px;
-    font-weight: bold;
-    color: #494949;/*文字色*/
-    
-}
-
-.result p{
-    margin: 0px 0px 0px 0px;
-}
-
-
-.result .string{
-    font-weight: normal;
-    font-size:14px;
-    color: #000000;/*文字色*/
-}
-
-.error p{
-    margin: 0px;
-}
-
-
-
-.details{
-    display: none;
-
-} 
-
-.summary{
-    margin:20px 0px 0px 0px;
-    font-size:13px;
-
-    &:hover {
-        cursor: pointer;
-        color: #0686b2;
-    }
-
-}
-
-.detailslist{
-    margin-left:15px;
-
-}
-
-
-.detailslist h3{
-    margin:20px 0px 0px 0px;
-    color: #494949;/*文字色*/
-    font-size: 13px;
-}
-
-.detailslist h3:first-child{
-    margin-top: 15px;
-  }
-
-.detailslist p{
-    margin:5px 0px 0px 0px;
-    font-size: 13px;
-
-}
-
-
-
-
-/* 800px以下の時(タブレットの時) */
-@media(max-width:1000px){ 
-
- 
-    .speedB,.speedP,.ingredientP{
-        flex-direction: column;
-    }
-
-    html,body{
-        font-size: 16px;
-    }
-
-    .speedSM,.ingredientSM{
-        display: flex;
-        flex-direction: column;
-    }
-   
-    .header .title{
-        padding: 30px 20px;
-        font-size: 20px
-    }
-
-    .header .explanation{
-        font-size: 14px;   
-    } 
-
-
-
-
-    h1{
-        font-size: 19px;
-    }
-    
-    h2{
-        font-size: 14px;
-
-    }
-
-    select{
-        font-size: 15px;
-    }
-
-    .result{
-        font-size: 18px;
-        
-    }
-
-    .result .string{
-        font-size:16px;
-    }
-    
-    .summary{
-        font-size: 15px;
-    }
-
-    .detailslist h3{
-        font-size: 15px;
-    }
-
-    .detailslist p{
-        margin:5px 0px 0px 0px;
-        font-size: 15px;
-    
-    }
-   
-    
-
-}
-
-
-
-
-/* 500px以下の時(スマホの時) */
-@media(max-width:700px){ 
-
-    .mainwrapper{
-        width:95%;
-        margin:35px auto 35px auto;
-        gap:25px;
-    }
-
-    .inputcontainer,.outputcontainer{
-        padding: 10px;
-    }
-
-    .input{
-        padding: 20px;
-    }
-
-    .output{
-        padding: 20px 20px 20px 20px;
-    }
-
-    .button{
-        width: 83px;
-        padding: 7px 0px;
-        font-size: 13px;
-    }
-        
-
-    
-
-    
-}
-
-/* 370px以下の時(極小スマホの時) */
-@media(max-width:370px){ 
-
-    .ingredient select{
-        display: block;
-    }
-        
-
-    
-
-    
-}

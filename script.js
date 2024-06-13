@@ -43,7 +43,7 @@ window.nameinput=()=>{
         if(pokemondatas[i].name===nameVar){
 
             nameflag=1;
-            name.setAttribute("style","width:110px;") //selectの幅元に戻す
+            // name.setAttribute("style","width:110px;") //selectの幅元に戻す
            
             //食材候補リセット
             let ingredient1 = document.getElementById('ingredient1');
@@ -105,10 +105,10 @@ window.nameinput=()=>{
                 Oriberries=1;
             }
             
-            //ポケモン名が6文字以上ならinputの幅広げる
-            if(nameVar.length>6){
-            name.setAttribute("style","width:160px;") 
-            }
+            // //ポケモン名が6文字以上ならinputの幅広げる
+            // if(nameVar.length>6){
+            // name.setAttribute("style","width:160px;") 
+            // }
         } 
        
     }   
