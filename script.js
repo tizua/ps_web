@@ -7,17 +7,16 @@ console.log(pokemondatas);
 
 //名前のインプットの検索候補にポケモン名表示する
 for(let i = 0; i < pokemondatas.length; i++){
-
-    //datalist取得
-    let namedata = document.getElementById('namedata');
+    //selectt取得
+    let name = document.getElementById('name');
     //optionタグを作る
     let option = document.createElement('option');
     //テキストを追加する
     option.textContent = pokemondatas[i].name;
-    //datalist内にoptionを配置する
-    namedata.appendChild(option);
+    //select内にoptionを配置する
+    name.appendChild(option);
+    
 }
-
 
 
 
@@ -38,13 +37,13 @@ window.nameinput=()=>{
     let nameVar = String(name.value);
     nameflag=0;
 
-    //inputの幅リセット
-    name.setAttribute("size","12") 
+    
     
     for(let i = 0; i < pokemondatas.length; i++){ 
         if(pokemondatas[i].name===nameVar){
 
             nameflag=1;
+            name.setAttribute("style","width:100px;") 
            
             //食材候補リセット
             let ingredient1 = document.getElementById('ingredient1');
@@ -108,12 +107,14 @@ window.nameinput=()=>{
             
             //ポケモン名が6文字以上ならinputの幅広げる
             if(nameVar.length>6){
-            name.setAttribute("size","18") 
+            name.setAttribute("style","width:160px;") 
             }
         } 
        
     }   
 }
+
+nameinput() //これないと初期値フシギダネだけど食材とかが表示されない
 
 
 //レベルによって食材非表示にする処理

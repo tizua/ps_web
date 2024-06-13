@@ -71,6 +71,8 @@ html,body{
 
 
 
+
+
 h1{
     margin:0;
     margin-bottom: 10px;
@@ -92,7 +94,9 @@ h2{
 }
 
 
-
+select{
+    font-size: 13px;
+}
 
 .input{
     display: flex;
@@ -115,6 +119,7 @@ h2{
 
 
 
+
 .s{
     width: 100%;
     margin-bottom: 20px;
@@ -133,6 +138,7 @@ label{
 
 .name .container{
     margin-bottom: 10px;
+    
 }
 
 
@@ -232,8 +238,8 @@ label{
 
 
 .result .string{
-    font-size: 14px;
     font-weight: normal;
+    font-size:13px;
     color: #000000;/*文字色*/
 }
 
@@ -250,6 +256,7 @@ label{
 
 .summary{
     margin:20px 0px 0px 0px;
+    font-size:13px;
 
     &:hover {
         cursor: pointer;
@@ -265,9 +272,9 @@ label{
 
 
 .detailslist h3{
-    font-size: 13px;
     margin:20px 0px 0px 0px;
     color: #494949;/*文字色*/
+    font-size: 13px;
 }
 
 .detailslist h3:first-child{
@@ -275,8 +282,8 @@ label{
   }
 
 .detailslist p{
-    font-size: 13px;
     margin:5px 0px 0px 0px;
+    font-size: 13px;
 
 }
 
@@ -299,7 +306,52 @@ label{
    
     .header .title{
         padding: 30px 20px;
+        font-size: 20px;
     }
+
+
+    select{
+        font-size: 16px;
+    }
+
+    html,body{
+        font-size: 16px;
+    }
+
+    h1{
+        font-size: 19px;
+    }
+    
+    h2{
+        font-size: 14px;
+
+    }
+
+    .result{
+        font-size: 17px;
+        
+    }
+
+    .result .string{
+        font-size:15px;
+    }
+    
+    .summary{
+        font-size: 15px;
+    }
+
+    .detailslist h3{
+        font-size: 14px;
+    }
+
+    .detailslist p{
+        margin:5px 0px 0px 0px;
+        font-size: 14px;
+    
+    }
+   
+    
+
 }
 
 
