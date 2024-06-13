@@ -1,38 +1,117 @@
+*{  
+    /* *でHTML全体に適用、幅や高さにpaddingやborderを含める記述 */
+    box-sizing: border-box; 
+}
+
 html,body{
     margin:0;
     padding:0;
     background-color: rgb(243, 245, 247);
+    font-size: 14px;
+   
+    
 }
 
-header{
-    background-color: rgb(255, 255, 255);
-    height: 50px;
-    width:100%;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.164);
+.top{
+    height:5px;
+    background-color: #1062a4;
 }
+
+.header{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.164);
+    color: #494949;/*文字色*/
+}
+
+
+.header .title{
+    font-size: 18px;
+    font-weight:bold;
+    padding: 20px 20px;
+}
+
+
+
+.header .explanation{
+    background-color: #1062a4;
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+}
+
+
+.title p,.explanation p{
+    margin: 0;
+}
+
+
+
+
 
 .mainwrapper{
-    background-color: rgb(255, 255, 255);
-    
-    width:80%;
-    margin:30px auto 30px auto;
-    padding: 50px;
-    border-radius:7px;
-    display: flex;
-    gap: 20px
-
-}
-
-
-.main{
+    width:600px;
+    margin:50px auto 50px auto;
     display: flex;
     flex-direction: column;
-    width: 50%;
-    border:solid 2px rgb(222, 222, 222);
-    border-radius: 7px;
-    padding: 20px;
+    gap: 30px
+
 }
 
+.inputcontainer,.outputcontainer{
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius:7px;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+  
+
+
+}
+
+
+
+h1{
+    margin:0;
+    margin-bottom: 10px;
+    font-size: 17px;
+    
+    padding: 0.2em 0.5em;/*上下 左右の余白*/
+    background: transparent;/*背景透明に*/
+    color: #494949;/*文字色*/
+    border-left: solid 5px #1062a4;
+
+
+    
+}
+
+h2{
+    font-size: 13px;
+    margin-bottom:5px;
+    color: #494949;/*文字色*/
+}
+
+
+
+
+.input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    border: solid 2px rgb(219, 221, 227);
+    border-radius: 7px;
+    padding: 30px;
+    
+}
+
+.output{
+    width:100%;
+    border:solid 2px rgb(219, 221, 227);
+    border-radius: 7px;
+    padding: 20px 30px 20px 30px;
+   
+}
 
 
 
@@ -46,14 +125,16 @@ label{
     margin-bottom: 5px;
 }
 
-.input{
+.name{
     display: flex;
     flex-direction: column;
+    
 }
 
-.input .container{
+.name .container{
     margin-bottom: 10px;
 }
+
 
 
 .ingredient{
@@ -61,45 +142,192 @@ label{
     flex-direction: column;
 }
 
-.subsikill{
+.subskill{
     display: flex;
     flex-direction: column;
 
 }
 
-.subsikill .berrieS,.speedB{
+.subskill .berrieS,.speedSM,.speedB{
     margin-bottom: 10px;
 }
+
+
+
 
 .personality{
     display: flex;
     flex-direction: column;
 }
 
+
+.subskill input,.personality input{
+    margin: 0px 2px 0px 1px;
+}
+
+
 .personality .speedP,.ingredientP{
     margin-bottom: 10px;
 }
 
+
+.speedB,.speedP,.ingredientP{
+    display: flex;
+}
+
+
+.rightmargin{
+    margin-right:8px;
+}
+
+
 .buttontext{
     margin-right: auto;
-    margin-bottom:0px
+    margin-bottom:0px;
+    height:40px;
+    display: flex;
+    align-items: center;
 }
 
 
 
-h1{
+.button{
+
+	width: 80px;
+	font-weight: bold;
+    border: none;
+    margin-right:auto;
+    padding: 5px 0px;
+    text-decoration: none;
+    border-bottom: 3px solid #224b9e;
+	color: white;
+    background-color: #4289c3;
+	border-radius: 5px;
+}
+
+
+.button:hover {
+    margin-top: 2px;
+	border-bottom: 1px solid #0686b2;
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+.result{
+    font-size: 15px;
+    font-weight: bold;
+    color: #494949;/*文字色*/
+    
+}
+
+.result p{
+    margin: 0px 0px 0px 0px;
+}
+
+
+.result .string{
+    font-size: 14px;
+    font-weight: normal;
+    color: #000000;/*文字色*/
+}
+
+.error p{
+    margin: 0px;
+}
+
+
+
+.details{
+    display: none;
+
+} 
+
+.summary{
+    margin:20px 0px 0px 0px;
+
+    &:hover {
+        cursor: pointer;
+        color: #0686b2;
+    }
+
+}
+
+.detailslist{
+    margin-left:15px;
+
+}
+
+
+.detailslist h3{
     font-size: 13px;
-    margin-bottom:5px;
+    margin:20px 0px 0px 0px;
+    color: #494949;/*文字色*/
 }
 
-h2{
+.detailslist h3:first-child{
+    margin-top: 15px;
+  }
+
+.detailslist p{
     font-size: 13px;
-    margin-bottom:5px;
+    margin:5px 0px 0px 0px;
+
 }
 
-.output{
-    width:50%;
-    border:solid 2px rgb(222, 222, 222);
-    border-radius: 7px;
-    padding: 20px;
+
+
+
+/* 800px以下の時(タブレットの時) */
+@media(max-width:1000px){ 
+
+ 
+
+    .speedB,.speedP,.ingredientP{
+        flex-direction: column;
+    }
+
+    .speedSM,.ingredientSM{
+        display: flex;
+        flex-direction: column;
+    }
+   
+    .header .title{
+        padding: 30px 20px;
+    }
+}
+
+
+
+
+/* 500px以下の時(スマホの時) */
+@media(max-width:700px){ 
+
+    .mainwrapper{
+        width:95%;
+        margin:35px auto 35px auto;
+        gap:25px;
+    }
+
+    .inputcontainer,.outputcontainer{
+        padding: 15px;
+    }
+
+    .input{
+        padding: 20px;
+    }
+
+    .output{
+        padding: 20px 20px 20px 20px;
+    }
+        
+
+    
+
+    
 }

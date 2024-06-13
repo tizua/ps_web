@@ -4,120 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>ポケモンスリープ 睡眠時に何個きのみや食材を拾ってくるか計算</title>
+    <meta name=”description” content=”入力した内容から、何個そのポケモンがきのみと食材を持って来るかシミュレーションします。きのみと食材が最大所持数内で収まるのか調べたい時などに使えます。”>
     
 </head>
 
 <body>
-
     <header>
+        <div class="top"></div>
+        <div class="header">
+            <div class="title">
+                <p>ポケモンスリープ 睡眠時に何個きのみや食材を拾ってくるか計算<p>
+            </div>
+            <div class="explanation">
+                <p>入力した内容から、何個そのポケモンがきのみと食材を持って来るか計算するシミュレーターです。きのみと食材が最大所持数内で収まるのか調べたい時などに使えます。</p>
+            </div>
+        </div>
     </header>
 
 
     <div class="mainwrapper">
 
-
-        <div class="main">
+        <div class="inputcontainer">
             <h1>情報を入力</h1>
-            <div class="s input">
-               
-                <div class="container">
-                    <label>ポケモンを入力<input type="text" id="name" list="namedata" size="10" value=" " onchange="nameinput()"></label> <!-- onchangeはフォームや選択メニューが変更されたとき -->
-                    <datalist id="namedata"> 
-                    </datalist>
-                </div>
-
-                <label>レベル<input type="number" id="level" min=1 max=100 style="width:40px;" value="100"></label>
-                
-                
-                <label>睡眠時間<input type="time" id="time" value="08:30"></label>
-                <label>睡眠時の元気<input type="number" id="fine" min=1 max=100 style="width:40px;" value="100"></label>
-                
-            </div>
-
-
-            <div class="s ingredient">  
-                <h2>食材</h2> 
-                <label>第1食材の個数
-                    <select name="ingredient1" id="ingredient1">   
-                    </select>
-                </label>
-
-                <label>第2食材の個数
-                    <select name="ingredient2" id="ingredient2">
-                    </select>
-                </label>
-
-                <label>第3食材の個数
-                    <select name="ingredient3" id="ingredient3">
-                    </select>
-                </label>
-            </div>
-
-
-            <div class="s subsikill">
-                <h2>サブスキル</h2>
-                <div class="berrieS">
-                    <label><input type="checkbox" id="berrieS">きのみの数S</label> 
-                </div>
-
-                <div class="speedSM">
-                    <label><input type="checkbox" name="speedSM" value="0.07">おてつだいスピードS</label>
-                    <label><input type="checkbox" name="speedSM" value="0.14">おてつだいスピードM</label>
-                </div>
-
-
-                <div class="speedB">
-                    <label>おてつだいボーナス<input type="radio" name="speedB" value="0" checked> なし</label>        
-                    <label><input type="radio" name="speedB" value="0.05"> 1個</label>
-                    <label><input type="radio" name="speedB" value="0.10"> 2個</label>  
-                    <label><input type="radio" name="speedB" value="0.15"> 3個</label> 
-                    <label><input type="radio" name="speedB" value="0.20"> 4個</label>
-                    <label><input type="radio" name="speedB" value="0.25"> 5個</label>
-                </div>
-
-
-                <div class="ingredientSM">
-                    <label><input type="checkbox" name="ingredientSM" value="0.18">食材確率アップS</label>
-                    <label><input type="checkbox" name="ingredientSM" value="0.36">食材確率アップM</label>
-                </div>
-
-            </div>
-
-            <div class="s personality">
-                <h2>性格</h2>
-
-                <div class="speedP">
-                    <label>おてつだいスピード性格補正 <input type="radio" name="speedP" value="1" checked> なし</label> 
-                    <label><input type="radio" name="speedP" value="0.9"> アップ</label>
-                    <label><input type="radio" name="speedP" value="1.1"> ダウン</label> 
-                </div>    
-
-                <div class="ingredientP">
-                    <label>食材確率性格補正 <input type="radio" name="ingredientP" value="1" checked> なし</label> 
-                    <label><input type="radio" name="ingredientP" value="1.2"> アップ</label>
-                    <label><input type="radio" name="ingredientP" value="0.8"> ダウン</label>
-                </div>
-            </div>   
+            <div class="input">
             
+                <div class="s name">
+                
+                    <div class="container">
+                        <label>ポケモン名 <input type="text" id="name" list="namedata" size="12" value=" " onchange="nameinput()"></label> <!-- onchangeはフォームや選択メニューが変更されたとき -->
+                        <datalist id="namedata"> 
+                        </datalist>
+                    </div>
+
+
+                    <label>レベル
+                        <select name="level" id="level" onchange="levelinput()">
+                            <script>
+                                for(let i=1;i<101;i++){
+                                    Sellevel=document.getElementById("level")
+                                    option=document.createElement("option")
+                                    option.textContent=i
+                                    Sellevel.appendChild(option);      
+                                
+                                    if(i===100){
+                                        option.setAttribute("selected","selected")
+                                        Sellevel.appendChild(option); 
+                                    }
+                                }
+                            </script>
+                        </select>
+                    </label>
+                    
+
+
+                    <label>睡眠時のげんき
+                        <select name="energy" id="energy">
+                            <script>
+                                for(let i=0;i<151;i++){
+                                    Selenergy=document.getElementById("energy")
+                                    option=document.createElement("option")
+                                    option.textContent=i
+                                    Selenergy.appendChild(option);
+
+                                    if(i===0){
+                                        option.setAttribute("selected","selected")
+                                        Selenergy.appendChild(option); 
+                                    }
+                                    
+                                    
+                                }
+                            </script>
+                        </select>
+                    </label>
+                
+
+
+                    <label>睡眠時間
+                        <select name="" id="time">
+                            <option value="30">30分</option>
+                            <script>
+                                
+                                for(let i=1;i<25;i++){
+                                    Seltime=document.getElementById("time")
+                                    option=document.createElement("option")
+                                    option.textContent=i+"時間"
+                                    option.setAttribute("value",i*60)
+                                    Seltime.appendChild(option);
+                                    
+                                    if(i===24){
+                                        ;
+                                    }else if(i===8){
+                                        option=document.createElement("option")
+                                        option.textContent=i+"時間"+"30分"
+                                        option.setAttribute("value",i*60+30)
+                                        option.setAttribute("selected","selected")
+                                        Seltime.appendChild(option);
+                                    }else{
+                                        option=document.createElement("option")
+                                        option.textContent=i+"時間"+"30分"
+                                        option.setAttribute("value",i*60+30)
+                                        Seltime.appendChild(option);
+                                    }   
+                                }
+                            </script>
+
+                        </select>
+                    </label>
+                    
+                    
+                </div>
+
+
+                <div class="s ingredient">  
+                    <h2>食材数</h2> 
+                    <label>第1食材
+                        <select name="ingredient1" id="ingredient1">   
+                        </select>
+                    </label>
+
+                    <label>第2食材
+                        <select name="ingredient2" id="ingredient2">
+                        </select>
+                    </label>
+
+                    <label>第3食材
+                        <select name="ingredient3" id="ingredient3">
+                        </select>
+                    </label>
+                </div>
+
+
+                <div class="s subskill">
+                    <h2>サブスキル</h2>
+                    <div class="berrieS">
+                        <label><input type="checkbox" id="berrieS">きのみの数S</label> 
+                    </div>
+
+                    <div class="speedSM">
+                        <label><input type="checkbox" name="speedSM" value="0.07">おてつだいスピードS</label>
+                        <label><input type="checkbox" name="speedSM" value="0.14">おてつだいスピードM</label>
+                    </div>
+
+
+                    <div class="speedB">
+                        <span class="rightmargin">おてつだいボーナス</span>
+                        <div class="container">
+                            <label><input type="radio" name="speedB" value="0" checked>なし</label>        
+                            <label><input type="radio" name="speedB" value="0.05">1個</label>
+                            <label><input type="radio" name="speedB" value="0.10">2個</label>  
+                            <label><input type="radio" name="speedB" value="0.15">3個</label> 
+                            <label><input type="radio" name="speedB" value="0.20">4個</label>
+                            <label><input type="radio" name="speedB" value="0.25">5個</label>
+                        </div>
+                    </div>
+
+
+                    <div class="ingredientSM">
+                        <label><input type="checkbox" name="ingredientSM" value="0.18">食材確率アップS</label>
+                        <label><input type="checkbox" name="ingredientSM" value="0.36">食材確率アップM</label>
+                    </div>
+
+                </div>
+
+                <div class="s personality">
+                    <h2>性格</h2>
+
+                    <div class="speedP">
+                        <span class="rightmargin">おてつだいスピード性格補正</span>
+                        <div class="container"> 
+                            <label><input type="radio" name="speedP" value="1" checked>なし</label>
+                            <label><input type="radio" name="speedP" value="0.9">アップ</label>
+                            <label><input type="radio" name="speedP" value="1.1">ダウン</label>
+                        </div> 
+                    </div>    
+
+                    <div class="ingredientP">
+                        <span class="rightmargin">食材確率性格補正</span>
+                        <div class="container"> 
+                            <label><input type="radio" name="ingredientP" value="1" checked>なし</label> 
+                            <label><input type="radio" name="ingredientP" value="1.2">アップ</label>
+                            <label><input type="radio" name="ingredientP" value="0.8">ダウン</label>
+                        </div> 
+                    </div>
+                </div>   
+                
+                
+            
+                <div class="s buttontext">
+                    <input  type="button" value="計算" class="button" onclick="calculation()">
+                </div> 
+
+
             
 
-            <div class="s buttontext">
-                <input  type="button" value="計算" onclick="calculation()">
-            </div> 
-
-
-        
-
+            </div>
         </div>
 
 
-        <div class="output">
-            <h1>結果</h1>
-            <div id="result">
+        <div class="outputcontainer">
+            <h1>結果</h1>    
+            <div class="output">
                 
-            </div>
+                <div id="result" class="result">
+                    <p> </p>
+                </div>
 
+                <details id="details" class="details">
+                    <summary id="summary" class="summary">詳細</summary>
+                    <div id="detailslist" class="detailslist">
+
+                    </div>
+                    
+                </details>
+                
+  
+
+            </div>
         </div>
         
 
