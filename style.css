@@ -18,24 +18,19 @@ html,body{
     
 }
 
-.top{
-    display: none;
-}
 
 .header{
+    border-top:solid 5px #1062a4;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.164);
     color: #494949;/*文字色*/
 }
-
 
 .header .title{
     font-size: 18px;
     font-weight:bold;
     padding: 20px 20px;
 }
-
-
 
 .header .explanation{
     background-color: #1062a4;
@@ -44,10 +39,12 @@ html,body{
     font-size: 13px;
 }
 
-
 .title p,.explanation p{
     margin: 0;
 }
+
+
+
 
 
 
@@ -56,17 +53,19 @@ html,body{
     margin:40px auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+
 }
 
 .inputcontainer{
     display: flex;
     flex-direction: column;
-    gap:5px;
+
 }
 
 .input{
-    gap: 20px;
+    display: flex;
+    flex-wrap:wrap;
+
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.164);
@@ -85,7 +84,7 @@ html,body{
 .outputcontainer{
     display: flex;
     flex-direction: column;
-    gap:5px;
+  
 }
 
 .output{
@@ -94,6 +93,8 @@ html,body{
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.164);
     padding: 30px;
 }
+
+
 
 
 
@@ -111,20 +112,22 @@ h2{
 }
 
 select{
-    font-size: 13px;
+    font-size: 15px;
 }
 
 
 
 
 
+.name{
+    flex: auto;
+}
 
 .name .container select,.ingredient .container select{
     display: block;
     width: 100%;
     
 }
-
 
 .name .container2{
     display: flex;
@@ -143,12 +146,18 @@ select{
 }
 
 
+
+
+
+.ingredient{
+    flex: auto;
+}
+
+
 .ingredient,.subskill,.personality{
     display: flex;
     flex-direction: column;
 }
-
-
 
 .ingredient .container{
     display: flex;
@@ -160,39 +169,33 @@ select{
 
 
 
+
+.subskill,.personality{
+    width:50%;
+}
+
 .subskill .container{
     display: flex;
-    flex-direction: column;
-    gap:10px
+    flex-direction: column; 
 }
-
-
-
-
-.berrieS,.speedB{
-    display: inline-block; 
-    width:fit-content
-}
-
 
 .speedSM,.ingredientSM{
     display: flex;
-    margin:0 auto;
-    width:80%;
-    gap: 70px;
-    
-}
-
-.ingredientSM label:first-child{
-    margin-right:32px;
+    flex-direction: column;
 }
 
 
-
-.personality .container{
-    display: flex;
-    margin:0 auto;
-    gap:50px
+.personality{
+    width:50%;
 }
+
+
+
+
+.buttontext{
+    flex: auto;
+    width: 100%;
+}
+
 
 

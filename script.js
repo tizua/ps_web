@@ -154,6 +154,8 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
 
     let energy = Number(document.getElementById('energy').value);
     console.log("energy",energy);
+
+    
     
 
 
@@ -213,16 +215,21 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
 
 
 
-    //おてつだいボーナスのどのラジオボタンが押されているかの確認
-    let speedB = document.getElementsByName('speedB'); //ラジオボタンのspeedBを全部ゲット
-    let speedBVar = 0; 
+    // //おてつだいボーナスのどのラジオボタンが押されているかの確認
+    // let speedB = document.getElementsByName('speedB'); //ラジオボタンのspeedBを全部ゲット
+    // let speedBVar = 0; 
     
-    for (let i = 0; i < speedB.length; i++){
-        if (speedB.item(i).checked){ //speedBをfor文で回してチェックされてたらvalueゲット
-            speedBVar = Number(speedB.item(i).value);
-        }
-    }
+    // for (let i = 0; i < speedB.length; i++){
+    //     if (speedB.item(i).checked){ //speedBをfor文で回してチェックされてたらvalueゲット
+    //         speedBVar = Number(speedB.item(i).value);
+    //     }
+    // }
+    // console.log("speedBVar",speedBVar)
+
+    let speedB = document.getElementById('speedB'); //ラジオボタンのspeedBを全部ゲット
+    let speedBVar = speedB.value;
     console.log("speedBVar",speedBVar)
+
 
 
 
