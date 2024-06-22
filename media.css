@@ -89,3 +89,53 @@
     }
     
 }
+
+/* hover指定できるPCを想定したスタイル */
+@media (hover: hover) {
+
+    .select:hover{
+        border:1px solid #000000;
+    }
+
+    .speedB .outer:hover{
+        border: 1px solid rgb(0, 0, 0);
+
+    }
+
+    .button:hover {
+        margin-top: 2px;
+        border-bottom: 1px solid #0686b2;
+    }
+
+    .clear:hover {
+        margin-top: 2px;
+        border-bottom: 1px solid #aac5db;
+    }
+
+    .summary:hover,.summarybcl:hover{
+        opacity:0.7;
+        cursor:pointer;
+    }
+
+}
+    
+/* hoverが使えないタッチ端末を想定した装飾 */
+@media (hover: none) {
+    
+
+
+    .button:active {
+        margin-top: 2px;
+        border-bottom: 1px solid #0686b2;
+    }
+
+    .clear:active {
+        margin-top: 2px;
+        border-bottom: 1px solid #aac5db;
+    }
+
+    .summary:active,.summarybcl:active{
+        opacity:0.7;
+        cursor:pointer;
+    }
+}
