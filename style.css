@@ -44,11 +44,6 @@ html,body{
     margin: 0;
 }
 
-
-
-
-
-
 .main{
     width:800px;
     margin:40px auto 80px auto;
@@ -116,8 +111,6 @@ h2{
 }
 
 
-
-
 /* スマホのデフォルト設定をリセット */
 
 
@@ -125,20 +118,15 @@ body{
     -webkit-tap-highlight-color: transparent;
     }
     
-    select { 
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        outline: none;
-        padding: 0;
-        appearance: none;
-        color: #000
-        }
-    
-
-
-
-
+select { 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+    color: #000
+}
 
 
 /* 重なる見出しデザイン */
@@ -152,15 +140,10 @@ body{
     pointer-events: none; /* 親none、子autoにして親にhover等を書くことで子要素がhover等された時親要素を変えることができる */
 }
 
-
-
-.select:hover{
-    border:1px solid #000000;
-}
-
 .select:focus-within {
-        border:1px solid #000000; /* 子要素がfocusされた時親要素を変更 */
+    border:1px solid #000000; /* 子要素がfocusされた時親要素を変更 */
 }
+
 
 
 
@@ -170,7 +153,7 @@ body{
 
 /* select自身 */
 
-select,.personality .outer{
+select,.personality .outer {
     border:none;
     padding: 15px 20px;
     border-radius: 5px;
@@ -186,6 +169,8 @@ select{
 select:focus{
     outline:none;
 }
+
+
 
 .disabled{
     pointer-events: none;
@@ -232,8 +217,6 @@ select:focus{
 }
 
 
-
-
 /* border */
 .info,.ingredient{
     
@@ -261,10 +244,6 @@ select:focus{
     border-top:solid 1px rgb(184, 184, 184);
     padding-top: 20px;
 }
-
-
-
-
 
 
 i{
@@ -338,11 +317,6 @@ i{
 }
 
 
-
-
-
-
-
 .ingredient{
     width: 100%;
     display: flex;
@@ -365,9 +339,6 @@ i{
     display: block;
     width: 100%;
 }
-
-
-
 
 
 .subskill{
@@ -439,18 +410,17 @@ i{
     border: 1px solid rgb(173, 173, 173);
     border-radius: 5px; 
     margin-left:5px; 
-    color:#313131;
-    
-
-
-    &:hover{
-        border: 1px solid rgb(0, 0, 0);
-
-    }
-    &:focus{
-        border: 1px solid rgb(0, 0, 0);
-    }
+    color:#313131;   
+    pointer-events: none; /* 親none、子autoにして親にhover等を書くことで子要素がhover等された時親要素を変えることができる */
 }
+
+.speedB .outer:focus-within {
+    border:1px solid #000000; /* 子要素がfocusされた時親要素を変更 */
+}
+
+
+
+
 
 .speedB .outer::after{
     position: absolute;
@@ -476,9 +446,6 @@ i{
 .speedB .rightmargin{
     margin-left:4px;
 }
-
-
-
 
 
 .personality{
@@ -512,9 +479,6 @@ i{
 }
 
 
-
-
-
 .buttondiv{
     flex: auto;
     width: 100%;
@@ -541,19 +505,12 @@ i{
 }
 
 
-.button:hover {
-    margin-top: 2px;
-	border-bottom: 1px solid #0686b2;
-}
+
 
 .clear{
     width:80px;
     border-bottom: 3px solid #7589b1;
     background-color: #aac5db;
-}
-.clear:hover {
-    margin-top: 2px;
-	border-bottom: 1px solid #aac5db;
 }
 
 
@@ -585,10 +542,7 @@ i{
     font-size: 15px;
     width: fit-content;
 
-    &:hover{
-        opacity:0.7;
-        cursor:pointer;
-    }
+    
 }
 
 
@@ -644,97 +598,56 @@ i{
 }
 
 
+/* hover指定できるPCを想定したスタイル */
+@media (hover: hover) {
 
-
-
-
-
-@media(max-width:1000px){
-    .main{
-        width:95%;
+    .select:hover{
+        border:1px solid #000000;
     }
-    .namecontainer label{
-        width: 88%;   
+
+    .speedB .outer:hover{
+        border: 1px solid rgb(0, 0, 0);
+
     }
-    .sort{
-        width:12%;
+
+    .button:hover {
+        margin-top: 2px;
+        border-bottom: 1px solid #0686b2;
     }
+
+    .clear:hover {
+        margin-top: 2px;
+        border-bottom: 1px solid #aac5db;
+    }
+
+    .summary:hover,.summarybcl:hover{
+        opacity:0.7;
+        cursor:pointer;
+    }
+
 }
-
-
-
-@media(max-width:700px){
-    .main{
-        width:95%;
-    }
-    .input{
-        padding: 30px 15px;
-    }
-
-
-    .info .container{
-        gap: 25px;
-    }
-
-    .namecontainer label{
-        width: 100%;   
-    }
- 
-    .sort{
-        padding-top:5px;
-    }
-    .sort label{
-        float: left;
-        width: fit-content;
-    }
-
-
-    .infocontainer{
-        gap:15px;
-    }
-
-    .infocontainer label{
-        width:100%;
-        
-    }
-
-
-    .ingredient .container label{
-        width:100%;
-        flex:auto;
-    }
-    .ingredient .container{
-        gap:15px;
-    }
-
-
-    .subskill{
-        width:100%;
-        border-right:none;
-        border-bottom:solid 1px rgb(184, 184, 184);
-        margin:20px 0 0 0;
-        padding:0 0 20px 0;
-    }
-    .personality{
-        width:100%;
-        padding: 0;
-        border-right:none;
-    }
-
-    .personality .container {
-        gap: 15px;
-    }
-
-
-
-
-    .button{
-        font-size: 14px;
-    }
-
-
-    .evbcl{
-        margin: 10px 0 5px 0;
-    }
     
+/* hoverが使えないタッチ端末を想定した装飾 */
+@media (hover: none) {
+    
+
+
+    .button:active {
+        margin-top: 2px;
+        border-bottom: 1px solid #0686b2;
+    }
+
+    .clear:active {
+        margin-top: 2px;
+        border-bottom: 1px solid #aac5db;
+    }
+
+    .summary:active,.summarybcl:active{
+        opacity:0.7;
+        cursor:pointer;
+    }
+
 }
+
+
+

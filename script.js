@@ -76,6 +76,7 @@ if(sortEles.item(0).checked){ //番号順の場合(sortElesの1番目の要素)
 }
 
 namecreate() //並び替えてから再びポケモン名リスト作る
+nameinput() //ソートでポケモン名変わるとnameinput経由しないからここで発動しておく
 }
 
 
@@ -165,6 +166,7 @@ window.nameinput=()=>{
             Oribcl=pokemondatas[i].basecarrylimit;
             Orievolution=pokemondatas[i].evolution;
             Orievolutionlimit=pokemondatas[i].evolutionlimit;
+            console.log("Orievolution",Orievolution,"Orievolutionlimit",Orievolutionlimit)
 
             //きのみの数を設定
             if(pokemondatas[i].specialty=="きのみ"){
@@ -242,6 +244,8 @@ window.clearbtn=()=>{
 
 //計算ボタンクリックしたときの関数
 window.calculationbtn=()=>{  //scriptタグにtype="module"がある場合、onclickの関数はconstの代わりにwindow.にしないとエラーがでて発動しない
+
+    
 
     
     //値入手エリア
