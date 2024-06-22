@@ -15,8 +15,7 @@ html,body{
     "Hiragino Sans",
     Meiryo,
     sans-serif;
-    accent-color: #4289c3;
-   
+    accent-color: #4289c3; 
     
 }
 
@@ -52,7 +51,7 @@ html,body{
 
 .main{
     width:800px;
-    margin:40px auto;
+    margin:40px auto 80px auto;
     display: flex;
     flex-direction: column;
     gap:40px;
@@ -118,6 +117,30 @@ h2{
 
 
 
+
+/* スマホのデフォルト設定をリセット */
+
+
+body{
+    -webkit-tap-highlight-color: transparent;
+    }
+    
+    select { 
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+        color: #000
+        }
+    
+
+
+
+
+
+
 /* 重なる見出しデザイン */
 
 
@@ -140,7 +163,13 @@ h2{
 }
 
 
+
+
+
+
+
 /* select自身 */
+
 select,.personality .outer{
     border:none;
     padding: 15px 20px;
@@ -165,13 +194,7 @@ select:focus{
 
 
 
-.personality .outer{
-    padding: 15px 30px 10px 30px;
-    border-radius: 5px;
-    font-size: 16px;
-    display: flex;
-    justify-content:space-between;
-}
+
 
 
 
@@ -196,6 +219,18 @@ select:focus{
 .disabledh3{   
     color: #a2a2a2!important; /* 上書き最優先 */
 }
+
+.select::after{
+    position: absolute;
+    content: "▼";
+    top: 20px;
+    right: 7px;
+    font-size: 8px;
+    transform: scale(1.5, 1); /* 平たくする */
+    color: #3e3e3e;
+    pointer-events: none;
+}
+
 
 
 
@@ -403,9 +438,9 @@ i{
     position: relative;
     border: 1px solid rgb(173, 173, 173);
     border-radius: 5px; 
-    margin-left:5px;
-    padding: 1px 0 0 0;  
+    margin-left:5px; 
     color:#313131;
+    
 
 
     &:hover{
@@ -415,12 +450,28 @@ i{
     &:focus{
         border: 1px solid rgb(0, 0, 0);
     }
+}
+
+.speedB .outer::after{
+    position: absolute;
+    content: "▼";
+    top: 7px;
+    right: 3px;
+    font-size: 8px;
+    transform: scale(1.5, 1); /* 平たくする */
+    color: #3e3e3e;
+    pointer-events: none;
 
 }
+
+
+
+
 .speedB select{
-    padding: 0px;
+    padding: 0px 15px 0 3px; 
     margin: 0px;
     border-radius: 5px;  
+    height: 100%;
 }
 .speedB .rightmargin{
     margin-left:4px;
@@ -444,13 +495,21 @@ i{
     gap: 20px;
 }
 
-.personality label{
-    cursor:pointer;
+
+
+.personality .outer{
+    padding: 15px 0px 10px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    
 }
 
-
-
-
+.personality label{
+    cursor:pointer;
+    width: 30%;
+    flex: auto;
+}
 
 
 
@@ -478,6 +537,7 @@ i{
 	color: white;
     background-color: #4289c3;
 	border-radius: 5px;
+    
 }
 
 
@@ -573,6 +633,7 @@ i{
     font-size:14px;
 }
 
+
 .detailsbcl label{
     margin:0 3px 0 0;
 }
@@ -663,4 +724,17 @@ i{
     .personality .container {
         gap: 15px;
     }
+
+
+
+
+    .button{
+        font-size: 14px;
+    }
+
+
+    .evbcl{
+        margin: 10px 0 5px 0;
+    }
+    
 }
