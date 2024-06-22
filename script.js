@@ -5,18 +5,81 @@ console.log(pokemondatas);
 
 
 
+//最初にポケモンリストを番号順にする
+    // 関数の戻り値が正の時　→　引数1を引数2の後ろに並べ替え。
+    // 関数の戻り値が負の時　→　引数1を引数2の前に並べ替え。
+    // 関数の戻り値が0の時　→　何もしない
+pokemondatas.sort((a, b)=>{
+    if (a.number < b.number) {
+        return -1;
+    } else {
+        return 1;
+    }
+    }) 
+
+
 //名前のインプットの検索候補にポケモン名表示する
-for(let i = 0; i < pokemondatas.length; i++){
-    //selectt取得
-    let name = document.getElementById('name');
-    //optionタグを作る
-    let option = document.createElement('option');
-    //テキストを追加する
-    option.textContent = pokemondatas[i].name;
-    //select内にoptionを配置する
-    name.appendChild(option);
-    
+window.namecreate=()=>{
+    let nameEle=document.getElementById("name");
+    nameEle.innerHTML=""; //リストリセット、これしないとどんどん追加されちゃう
+
+    for(let i = 0; i < pokemondatas.length; i++){
+        //selectt取得
+        let name = document.getElementById('name');
+        //optionタグを作る
+        let option = document.createElement('option');
+        //テキストを追加する
+        option.textContent = pokemondatas[i].name;
+        //select内にoptionを配置する
+        name.appendChild(option);
+        }
 }
+
+namecreate(); //最初にポケモンリスト作る
+
+
+
+
+
+// 並び替え
+window.sortinput=()=>{
+
+let sortEles=document.getElementsByName("sort");
+
+if(sortEles.item(0).checked){ //番号順の場合(sortElesの1番目の要素)
+
+    //番号順
+    // 関数の戻り値が正の時　→　引数1を引数2の後ろに並べ替え。
+    // 関数の戻り値が負の時　→　引数1を引数2の前に並べ替え。
+    // 関数の戻り値が0の時　→　何もしない
+    pokemondatas.sort((a, b)=>{
+        if (a.number < b.number) {
+            return -1;
+        } else {
+            return 1;
+        }
+        }) 
+
+}else if(sortEles.item(1).checked){ //名前順の場合(sortElesの2番目の要素)
+
+    //名前順
+    // 関数の戻り値が正の時　→　引数1を引数2の後ろに並べ替え。
+    // 関数の戻り値が負の時　→　引数1を引数2の前に並べ替え。
+    // 関数の戻り値が0の時　→　何もしない
+    pokemondatas.sort((a, b)=>{
+        if (a.name < b.name) {
+            return -1;
+        } else {
+            return 1;
+        }
+        })      
+}
+
+namecreate() //並び替えてから再びポケモン名リスト作る
+}
+
+
+
 
 
 
@@ -26,6 +89,9 @@ let Orispeed=1;
 let Oriberries=1;
 let Oriingredientper=1;
 let Oriingredient123=3;
+let Oribcl=0;
+let Orievolution=1;
+let Orievolutionlimit=1;
 let nameflag=0;
 
 
@@ -93,10 +159,12 @@ window.nameinput=()=>{
             }
         
 
-            //おてつだいスピード&食材確率ゲット
+            //おてつだいスピード&食材確率&最大所持数&進化回数進化上限ゲット
             Orispeed=pokemondatas[i].speed;
             Oriingredientper=pokemondatas[i].ingredientper;
-
+            Oribcl=pokemondatas[i].basecarrylimit;
+            Orievolution=pokemondatas[i].evolution;
+            Orievolutionlimit=pokemondatas[i].evolutionlimit;
 
             //きのみの数を設定
             if(pokemondatas[i].specialty=="きのみ"){
@@ -104,17 +172,22 @@ window.nameinput=()=>{
             }else if(pokemondatas[i].specialty=="食材" || pokemondatas[i].specialty=="スキル"){
                 Oriberries=1;
             }
-            
-            // //ポケモン名が6文字以上ならinputの幅広げる
-            // if(nameVar.length>6){
-            // name.setAttribute("style","width:160px;") 
-            // }
+
+
         } 
        
-    }   
+    }  
+ 
+    let checkboxEles=document.querySelectorAll('.berrieS input,.speedSM input,.ingredientSM input');
+    console.log(checkboxEles)
+    
 }
 
 nameinput() //これないと初期値フシギダネだけど食材とかが表示されない
+
+
+
+
 
 
 //レベルによって食材非表示にする処理
@@ -122,29 +195,55 @@ window.levelinput=()=>{
     let level=Number(document.getElementById("level").value);
     let ingredient2 = document.getElementById('ingredient2');
     let ingredient3 = document.getElementById('ingredient3');
+    let ingredient2h3 = document.getElementById('ingredient2h3');
+    let ingredient3h3 = document.getElementById('ingredient3h3');
 
-    ingredient2.disabled=false
+    ingredient2.disabled=false //リセット
     ingredient3.disabled=false
+    ingredient2.classList.remove("disabled");//クラス消す
+    ingredient3.classList.remove("disabled");
+    ingredient2h3.classList.remove("disabledh3");//クラス消す
+    ingredient3h3.classList.remove("disabledh3");
+
     
     if(level<30){
         ingredient2.disabled=true
+        ingredient2.setAttribute("class","disabled") //hoverオフにしたりするcss適用するためににclass名つける
+        ingredient2h3.setAttribute("class","disabledh3")
         ingredient3.disabled=true
+        ingredient3.setAttribute("class","disabled")
+        ingredient3h3.setAttribute("class","disabledh3")
+
         Oriingredient123=1
     }else if(level<60){
         ingredient3.disabled=true
+        ingredient3.setAttribute("class","disabled")
+        ingredient3h3.setAttribute("class","disabledh3")
         Oriingredient123=2
     }else{
         Oriingredient123=3
     }
 }
 
+//クリアボタンクリックしたときの関数
+window.clearbtn=()=>{
+    document.inputform.reset(); //フォームをリセット、getbyNameしなくてもできる場合がある、非推奨らしい
+
+    let result=document.getElementById("result"); //アウトプット初期値に戻してる
+    result.innerHTML="<p> </p>"
+    let details=document.getElementById("details");
+    details.style.display="none"
+    let detailsbcl=document.getElementById("detailsbcl")
+    detailsbcl.style.display="none"
+
+    console.log("clear")
+}
 
 
 //計算ボタンクリックしたときの関数
+window.calculationbtn=()=>{  //scriptタグにtype="module"がある場合、onclickの関数はconstの代わりにwindow.にしないとエラーがでて発動しない
 
-window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclickの関数はconstの代わりにwindow.にしないとエラーがでて発動しない
-
-
+    
     //値入手エリア
     let name = String(document.getElementById('name').value);
     console.log("name",name);
@@ -163,6 +262,9 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
     
     let details=document.getElementById("details");
     details.style.display="none"
+
+    let detailsbcl=document.getElementById("detailsbcl")
+    detailsbcl.style.display="none"
     
 
     //ポケモン名が入力されていなかった時の処理
@@ -226,8 +328,8 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
     // }
     // console.log("speedBVar",speedBVar)
 
-    let speedB = document.getElementById('speedB'); //ラジオボタンのspeedBを全部ゲット
-    let speedBVar = speedB.value;
+    let speedB = document.getElementById('speedB'); //セレクトのspeedBゲット
+    let speedBVar = Number(speedB.value);
     console.log("speedBVar",speedBVar)
 
 
@@ -250,7 +352,8 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
         
         console.log("ingredientS",ingredientS)
         console.log("ingredientM",ingredientM)
-    
+        let ingredientSMVar=ingredientS+ingredientM;
+
    
 
 
@@ -259,8 +362,8 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
     let speedPVar = 0; 
     
     for (let i = 0; i < speedP.length; i++){
-        if (speedP.item(i).checked){ //speedPをfor文で回してチェックされてたらvalueゲット
-            speedPVar = Number(speedP.item(i).value);
+        if (speedP[i].checked){ //speedPをfor文で回してチェックされてたらvalueゲット speedP.item(i).checkedでもspeedP[i].checkedでも可
+            speedPVar = Number(speedP[i].value);
         }
     }
     console.log("speedPVar",speedPVar)
@@ -272,8 +375,8 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
     let ingredientPVar = 0; 
     
     for (let i = 0; i < ingredientP.length; i++){
-        if (ingredientP.item(i).checked){ //speedPをfor文で回してチェックされてたらvalueゲット
-            ingredientPVar = Number(ingredientP.item(i).value);
+        if (ingredientP[i].checked){ //speedPをfor文で回してチェックされてたらvalueゲット
+            ingredientPVar = Number(ingredientP[i].value);
         }
     }
     console.log("ingredientPVar",ingredientPVar)
@@ -326,8 +429,8 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
  
     //おてつだいスピード計算
     let levelspeed=1-(level - 1)*0.002; //レベルによる補正
-
-    let subskillspeed=speedBVar+speedS+speedM; //サブスキルの軽減値が0.35以上なら0.35にする処理&サブスキル補正
+  
+    let subskillspeed=speedS+speedM+speedBVar; //サブスキルの軽減値が0.35以上なら0.35にする処理&サブスキル補正
     if(subskillspeed>0.35){
         subskillspeed=0.35
     }
@@ -422,10 +525,26 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
 
 
 
+    //最大所持数
+
+    //summary文字変える
+    let summarybcl=document.getElementById("summarybcl")
+    summarybcl.textContent=`${name}の最大所持数は？`
+
+    //h3文字変える
+    let bclh3=document.getElementById("bclh3")
+    bclh3.textContent=`${Oribcl}個`
+
+    detailsbcl.style.display="block" //詳細を表示する
+
+
+
+
+
     //計算詳細
 
-    let detailslist=document.getElementById("detailslist") //詳細リセット
-    detailslist.innerHTML=""
+    let detailslist=document.getElementById("detailslist") 
+    detailslist.innerHTML="" //詳細リセット
 
     //タグ作成
     let counth3=document.createElement("h3");
@@ -444,13 +563,13 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
 
     //作ったタグに文入れる
     speedh3.textContent=`おてつだいスピード ${totalspeed}秒`
-    speedp.innerHTML=`基準おてつだい時間:${Orispeed}秒×レベル補正:${levelspeed}×性格補正:${speedPVar}×サブスキル補正:${subskillspeed}×げんき補正:${energyave}`
+    speedp.innerHTML=`基準おてつだい時間:${Orispeed}秒×レベル補正:${Math.round(levelspeed * 1000) / 1000}×性格補正:${speedPVar}×サブスキル補正:${Math.round(subskillspeed * 100) / 100}×げんき補正:${energyave}`
 
     counth3.textContent=`おてつだい回数 ${helpingcount}回`
     countp.innerHTML=`睡眠時間:${time}分÷おてつだいスピード:${totalspeed2}分`
-
+    
     ingredientperh3.textContent=`食材確率 ${ingredientper}%`
-    ingredientperp.innerHTML=`基準食材確率:${Oriingredientper}%×性格補正:${ingredientPVar}×サブスキル補正:${1+(ingredientS+ingredientM)}`
+    ingredientperp.innerHTML=`基準食材確率:${Oriingredientper}%×性格補正:${ingredientPVar}×サブスキル補正:${Math.round((1+ingredientSMVar) * 100) / 100}` //小数点第3位以下を四捨五入する処理
 
     
     berriesh3.textContent=`入手きのみ数 ${helpingcount2}個`
@@ -476,17 +595,95 @@ window.calculation=()=>{  //scriptタグにtype="module"がある場合、onclic
     detailslist.appendChild(resulth3); 
     detailslist.appendChild(resultp);
     
-
     details.style.display="block" //詳細を表示する
-                    
-                    
-                    
-                
+
+    bclinput(); //最大所持数の関数発動 
     
-                    
 
 
 
+    //ポケモンによって結果の進化回数の初期チェックを変えたり非活性にする処理
+    let evbclzero=document.getElementById("evbclzero");
+    let evbcl1=document.getElementById("evbcl1");
+    let evbcl2=document.getElementById("evbcl2");
+    
+
+    //新しく計算押したら最大所持数のサブスキルのチェックリセット
+    let subskillbclS=document.getElementById("subskillbclS");
+    let subskillbclM=document.getElementById("subskillbclM");
+    let subskillbclL=document.getElementById("subskillbclL");
+
+    subskillbclS.checked=false
+    subskillbclM.checked=false
+    subskillbclL.checked=false
+
+
+
+    //進化回数の初期チェック変える
+    //一応リセット
+    evbclzero.checked=true;
+
+    if(Orievolution===1){
+        evbclzero.checked=true;
+    }else if(Orievolution===2){
+        evbcl1.checked=true;
+    }else if(Orievolution===3){
+        evbcl2.checked=true;
+    }
+    
+
+    //進化回数非活性にする
+    //リセット
+    evbcl1.disabled=false;
+    evbcl2.disabled=false;
+
+    if(Orievolutionlimit===1){
+        evbcl1.disabled=true;
+        evbcl2.disabled=true;
+    }
+    if(Orievolutionlimit===2){
+        evbcl2.disabled=true;
+    }
+    
 }
-    
-   
+
+
+
+
+//最大所持数変える関数
+window.bclinput=()=>{
+
+    //進化状況
+    let evbcls=document.getElementsByName("evbcl");
+    let evbclVar=0;
+
+    for(let i=0;i<evbcls.length;i++){
+        if(evbcls.item(i).checked){
+            evbclVar=Number(evbcls.item(i).value);
+        }
+    }
+    console.log(`evbclVar${evbclVar}`)
+
+
+    //サブスキル
+    let subskillbcls=document.getElementsByName("subskillbcl");
+    let S=0;
+    let M=0;
+    let L=0;
+
+    for(let i=0;i<subskillbcls.length;i++){
+        if(subskillbcls.item(0).checked){
+            S=6;
+        }
+        if(subskillbcls.item(1).checked){
+            M=12;
+        }
+        if(subskillbcls.item(2).checked){
+            L=18;
+        }
+    }
+    console.log(`S${S}M${M}L${L}`)
+
+    let bclh3=document.getElementById("bclh3")
+    bclh3.textContent=`${Oribcl+evbclVar+S+M+L}個`
+}

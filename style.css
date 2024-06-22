@@ -7,6 +7,7 @@ html,body{
     margin:0;
     padding:0;
     background-color: rgb(243, 245, 247);
+    color: #313131;
     font-size: 16px;
     font-family: "Helvetica Neue",
     Arial,
@@ -14,6 +15,7 @@ html,body{
     "Hiragino Sans",
     Meiryo,
     sans-serif;
+    accent-color: #4289c3;
    
     
 }
@@ -48,17 +50,19 @@ html,body{
 
 
 
-.mainwrapper{
-    width:600px;
+.main{
+    width:800px;
     margin:40px auto;
     display: flex;
     flex-direction: column;
+    gap:40px;
 
 }
 
-.inputcontainer{
+.inputwrapper{
     display: flex;
     flex-direction: column;
+    gap:10px;
 
 }
 
@@ -66,24 +70,23 @@ html,body{
     display: flex;
     flex-wrap:wrap;
 
+
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.164);
     padding: 30px;
 }
 
-.s{
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    border-bottom:solid 1px #c1c1c1
-}
 
 
 
 
-.outputcontainer{
+
+
+.outputwrapper{
     display: flex;
     flex-direction: column;
+    gap:10px;
   
 }
 
@@ -101,6 +104,7 @@ html,body{
 h1{
     margin:0px 0px 0px 0px;
     font-size: 18px;
+    
     background: transparent;/*背景透明に*/
     color: #494949;/*文字色*/
 }
@@ -108,75 +112,274 @@ h1{
 h2{
     margin:0;
     font-size: 13px;
+    font-weight: normal;
     color: #494949;/*文字色*/
 }
 
+
+
+/* 重なる見出しデザイン */
+
+
+/* selectの親のdiv */
+.select,.speedP,.ingredientP{
+    position: relative;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 5px; 
+    pointer-events: none; /* 親none、子autoにして親にhover等を書くことで子要素がhover等された時親要素を変えることができる */
+}
+
+
+
+.select:hover{
+    border:1px solid #000000;
+}
+
+.select:focus-within {
+        border:1px solid #000000; /* 子要素がfocusされた時親要素を変更 */
+}
+
+
+/* select自身 */
+select,.personality .outer{
+    border:none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #313131;
+    pointer-events: auto;
+}
+
 select{
-    font-size: 15px;
+    cursor:pointer;
+}
+
+select:focus{
+    outline:none;
+}
+
+.disabled{
+    pointer-events: none;
 }
 
 
 
 
-
-.name{
-    flex: auto;
-}
-
-.name .container select,.ingredient .container select{
-    display: block;
-    width: 100%;
-    
-}
-
-.name .container2{
+.personality .outer{
+    padding: 15px 30px 10px 30px;
+    border-radius: 5px;
+    font-size: 16px;
     display: flex;
+    justify-content:space-between;
+}
+
+
+
+
+.select h3,.speedP h3,.ingredientP h3{
+    position: absolute;
+    top: -10px;
+    left:10px;
+    z-index: 20;
+    
+ 
+    font-size: 13px;
+    font-weight: normal;
+    padding: 0 3px;
+    margin: 0 ;
+
+    color: #494949;/*文字色*/
+    background-color: white;
     
 }
 
-.name .container2 label{
-    width:33.3%
+.disabledh3{   
+    color: #a2a2a2!important; /* 上書き最優先 */
+}
+
+
+
+/* border */
+.info,.ingredient{
+    
+    border-bottom:solid 1px rgb(184, 184, 184);
+    padding-bottom: 20px; 
+}
+
+
+.ingredient{
+    padding-top: 20px;
+}
+
+.subskill{
+    border-right:solid 1px rgb(184, 184, 184);
+    margin: 20px 0px;
+    padding: 0px 20px 0px 0px;
+}
+
+.personality{
+    margin:20px 0px;
+    padding: 0px 0px 0px 20px;
+}
+
+.buttondiv{
+    border-top:solid 1px rgb(184, 184, 184);
+    padding-top: 20px;
+}
+
+
+
+
+
+
+i{
+    margin-right:5px;
+}
+
+.info{
+    width: 100%;
+}
+
+
+.info .container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+}
+
+
+
+.namecontainer{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.namecontainer label{
+    width: 90%;
+    flex: auto;
     
 }
 
-.name .container2 select{
+.namecontainer select{
+    width: 100%; 
+}
+
+
+.sort{
+    width:10%;
+    flex: auto;
+    font-size:14px;
+    padding-top: 3px;
+}
+
+.sort label{
+    display: block;
+    width: fit-content;
+    float:right;
+    cursor: pointer;
+}
+
+
+
+.infocontainer{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    gap: 10px;
+    
+}
+
+.infocontainer label{
+    width:30%;
+    flex:auto;
+    
+}
+.info .infocontainer select{
     display: block;
     width: 100%;
     
 }
+
+
 
 
 
 
 
 .ingredient{
-    flex: auto;
-}
-
-
-.ingredient,.subskill,.personality{
+    width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
 .ingredient .container{
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .ingredient .container label{
-    width:33.3%
+    width:30%;
+    flex:auto;
+}
+
+.ingredient .container select{
+    display: block;
+    width: 100%;
 }
 
 
 
 
-.subskill,.personality{
+
+.subskill{
+    display: flex;
+    flex-direction: column;
     width:50%;
+    gap: 20px;
 }
+
+
 
 .subskill .container{
     display: flex;
     flex-direction: column; 
+    gap: 10px;
+}
+
+
+.subskill .group:not(.speedB){
+    padding: 7px;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 5px;
+}
+
+.subskill label{
+    cursor:pointer;
+}
+.speedB{
+    cursor:default;
+}
+
+
+
+.border{
+    border-bottom: solid 1px rgb(184, 184, 184);
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+}
+
+
+.berrieS{
+    display: flex;
+}
+
+
+.berrieS label{
+    flex: auto;
 }
 
 .speedSM,.ingredientSM{
@@ -185,17 +388,279 @@ select{
 }
 
 
-.personality{
-    width:50%;
+
+
+
+
+
+.speedB{
+    display: flex;
+}
+
+
+
+.speedB .outer{
+    position: relative;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 5px; 
+    margin-left:5px;
+    padding: 1px 0 0 0;  
+    color:#313131;
+
+
+    &:hover{
+        border: 1px solid rgb(0, 0, 0);
+
+    }
+    &:focus{
+        border: 1px solid rgb(0, 0, 0);
+    }
+
+}
+.speedB select{
+    padding: 0px;
+    margin: 0px;
+    border-radius: 5px;  
+}
+.speedB .rightmargin{
+    margin-left:4px;
 }
 
 
 
 
-.buttontext{
+
+.personality{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    gap: 20px;
+
+}
+
+.personality .container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.personality label{
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+.buttondiv{
     flex: auto;
     width: 100%;
+    height: 70px;
+    margin-bottom:0px;
+    display: flex;
+    align-items: center;
+}
+
+
+.button{
+    width:120px;
+    padding: 10px 0px;
+	font-weight: bold;
+    border: none;
+    margin-right:10px;
+    
+    text-decoration: none;
+    border-bottom: 3px solid #224b9e;
+	color: white;
+    background-color: #4289c3;
+	border-radius: 5px;
+}
+
+
+.button:hover {
+    margin-top: 2px;
+	border-bottom: 1px solid #0686b2;
+}
+
+.clear{
+    width:80px;
+    border-bottom: 3px solid #7589b1;
+    background-color: #aac5db;
+}
+.clear:hover {
+    margin-top: 2px;
+	border-bottom: 1px solid #aac5db;
+}
+
+
+.result p{
+    font-weight: bold;
+    font-size: 18px;
+    margin:0 0 20px 0;
+    color: #494949;/*文字色*/
+}
+
+.result span{
+    font-weight: normal;
+    font-size: 16px;
+    color: #313131;
+
 }
 
 
 
+.details,.detailsbcl{
+    display:none;
+}
+
+.detailslist,.plusbcl{
+    margin-left:20px;
+}
+
+.summary,.summarybcl{
+    font-size: 15px;
+    width: fit-content;
+
+    &:hover{
+        opacity:0.7;
+        cursor:pointer;
+    }
+}
+
+
+
+
+
+.detailslist{
+    margin-bottom: 30px;
+}
+
+.detailslist h3{
+    font-size:14px;
+    margin:20px 0 5px 0;
+    font-weight: 600;
+    color: #494949;/*文字色*/
+}
+
+.detailslist h3:first-child{
+    margin:10px 0 5px 0;
+}
+
+
+.detailslist p{
+    font-size:14px;
+    margin:0;
+}
+
+
+
+.detailsbcl{
+    margin-top: 5px;
+}
+
+.bclh3{
+    font-size:16px;
+    margin:10px 0px 5px 20px;
+    font-weight: 600;
+    color: #494949;/*文字色*/
+}
+
+.plusbcl{
+    font-size:14px;
+}
+
+.detailsbcl label{
+    margin:0 3px 0 0;
+}
+
+
+.detailsbcl input{
+    margin:0 2px 0 0;
+}
+
+
+
+
+
+
+
+@media(max-width:1000px){
+    .main{
+        width:95%;
+    }
+    .namecontainer label{
+        width: 88%;   
+    }
+    .sort{
+        width:12%;
+    }
+}
+
+
+
+@media(max-width:700px){
+    .main{
+        width:95%;
+    }
+    .input{
+        padding: 30px 15px;
+    }
+
+
+    .info .container{
+        gap: 25px;
+    }
+
+    .namecontainer label{
+        width: 100%;   
+    }
+ 
+    .sort{
+        padding-top:5px;
+    }
+    .sort label{
+        float: left;
+        width: fit-content;
+    }
+
+
+    .infocontainer{
+        gap:15px;
+    }
+
+    .infocontainer label{
+        width:100%;
+        
+    }
+
+
+    .ingredient .container label{
+        width:100%;
+        flex:auto;
+    }
+    .ingredient .container{
+        gap:15px;
+    }
+
+
+    .subskill{
+        width:100%;
+        border-right:none;
+        border-bottom:solid 1px rgb(184, 184, 184);
+        margin:20px 0 0 0;
+        padding:0 0 20px 0;
+    }
+    .personality{
+        width:100%;
+        padding: 0;
+        border-right:none;
+    }
+
+    .personality .container {
+        gap: 15px;
+    }
+}
