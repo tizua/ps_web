@@ -180,8 +180,7 @@ window.nameinput=()=>{
        
     }  
  
-    let checkboxEles=document.querySelectorAll('.berrieS input,.speedSM input,.ingredientSM input');
-    console.log(checkboxEles)
+ 
     
 }
 
