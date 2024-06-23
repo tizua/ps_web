@@ -27,7 +27,7 @@
     </header>
 
 
-    <div class="main" ontouchstart=""> <!-- ontouchstart=""はSafariでも他のブラウザと同じ動きさせるやつ -->
+    <div class="main" ontouchstart=""> <!-- ontouchstart=""はactiveとかスマホで動かすのに必須 -->
 
         <div class="inputwrapper">
             <h1><i class="fa-solid fa-pen"></i>情報を入力</h1>
@@ -200,24 +200,19 @@
 
                                 <div class="group speedB">
                                     
-                                    <span class="rightmargin">おてつだいボーナス</span>
-                                    <div class="outer">
-                                        <select name="speedB" id="speedB">
-                                            <option value="0">0個</option>
-                                            <option value="0.05">1個</option>
-                                            <option value="0.10">2個</option>
-                                            <option value="0.15">3個</option>
-                                            <option value="0.20">4個</option>
-                                            <option value="0.25">5個</option>
-                                        </select>
-                                        <!-- <label><input type="radio" name="speedB" value="0" checked>なし</label>        
-                                        <label><input type="radio" name="c" value="0.05">1個</label>
-                                        <label><input type="radio" name="speedB" value="0.10">2個</label>  
-                                        <label><input type="radio" name="speedB" value="0.15">3個</label> 
-                                        <label><input type="radio" name="speedB" value="0.20">4個</label>
-                                        <label><input type="radio" name="speedB" value="0.25">5個</label> -->
-                                    </div>
-                            
+                                        <span class="rightmargin">おてつだいボーナス</span>
+                                        <div class="outer">
+                                            <select name="speedB" id="speedB">
+                                                <option value="0">0個</option>
+                                                <option value="0.05">1個</option>
+                                                <option value="0.10">2個</option>
+                                                <option value="0.15">3個</option>
+                                                <option value="0.20">4個</option>
+                                                <option value="0.25">5個</option>
+                                            </select>
+                                        </div>
+                                        <div class="adjustment"></div>
+                                    
                                 </div>
                             </div>
 

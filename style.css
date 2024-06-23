@@ -1,3 +1,4 @@
+/* 全体 */
 *{  
     /* *でHTML全体に適用、幅や高さにpaddingやborderを含める記述 */
     box-sizing: border-box; 
@@ -16,10 +17,11 @@ html,body{
     Meiryo,
     sans-serif;
     accent-color: #4289c3; 
-    
 }
 
 
+
+/* ヘッダー */
 .header{
     border-top:solid 5px #1062a4;
     background-color: rgb(255, 255, 255);
@@ -44,26 +46,26 @@ html,body{
     margin: 0;
 }
 
+
+
+/* ラッパー */
 .main{
     width:800px;
     margin:40px auto 80px auto;
     display: flex;
     flex-direction: column;
     gap:40px;
-
 }
 
 .inputwrapper{
     display: flex;
     flex-direction: column;
     gap:10px;
-
 }
 
 .input{
     display: flex;
     flex-wrap:wrap;
-
 
     background-color: white;
     border-radius: 10px;
@@ -72,16 +74,10 @@ html,body{
 }
 
 
-
-
-
-
-
 .outputwrapper{
     display: flex;
     flex-direction: column;
-    gap:10px;
-  
+    gap:10px; 
 }
 
 .output{
@@ -93,8 +89,25 @@ html,body{
 
 
 
+/* スマホのデフォルト設定をリセット */
+
+body{
+    -webkit-tap-highlight-color: transparent;
+    }
+    
+select{ 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+    color: #000
+}
 
 
+
+/* 見出し */
 h1{
     margin:0px 0px 0px 0px;
     font-size: 18px;
@@ -111,28 +124,12 @@ h2{
 }
 
 
-/* スマホのデフォルト設定をリセット */
-
-
-body{
-    -webkit-tap-highlight-color: transparent;
-    }
-    
-select { 
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-    appearance: none;
-    color: #000
-}
-
 
 /* 重なる見出しデザイン */
 
 
 /* selectの親のdiv */
+
 .select,.speedP,.ingredientP{
     position: relative;
     border: 1px solid rgb(184, 184, 184);
@@ -143,12 +140,6 @@ select {
 .select:focus-within {
     border:1px solid #000000; /* 子要素がfocusされた時親要素を変更 */
 }
-
-
-
-
-
-
 
 
 /* select自身 */
@@ -170,19 +161,12 @@ select:focus{
     outline:none;
 }
 
-
-
 .disabled{
     pointer-events: none;
 }
 
 
-
-
-
-
-
-
+/* 重なる見出し */
 
 .select h3,.speedP h3,.ingredientP h3{
     position: absolute;
@@ -190,15 +174,13 @@ select:focus{
     left:10px;
     z-index: 20;
     
- 
     font-size: 13px;
     font-weight: normal;
     padding: 0 3px;
     margin: 0 ;
 
     color: #494949;/*文字色*/
-    background-color: white;
-    
+    background-color: white; 
 }
 
 .disabledh3{   
@@ -217,13 +199,12 @@ select:focus{
 }
 
 
-/* border */
+
+/* ボーダー */
 .info,.ingredient{
-    
     border-bottom:solid 1px rgb(184, 184, 184);
     padding-bottom: 20px; 
 }
-
 
 .ingredient{
     padding-top: 20px;
@@ -246,6 +227,8 @@ select:focus{
 }
 
 
+
+/* info */
 i{
     margin-right:5px;
 }
@@ -254,7 +237,6 @@ i{
     width: 100%;
 }
 
-
 .info .container{
     display: flex;
     flex-direction: column;
@@ -262,24 +244,19 @@ i{
     gap: 30px;
 }
 
-
-
 .namecontainer{
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .namecontainer label{
     width: 90%;
     flex: auto;
-    
 }
 
 .namecontainer select{
     width: 100%; 
 }
-
 
 .sort{
     width:10%;
@@ -295,28 +272,26 @@ i{
     cursor: pointer;
 }
 
-
-
 .infocontainer{
     display: flex;
     flex-wrap: wrap;
     width:100%;
-    gap: 10px;
-    
+    gap: 10px;  
 }
 
 .infocontainer label{
     width:30%;
-    flex:auto;
-    
+    flex:auto;  
 }
+
 .info .infocontainer select{
     display: block;
-    width: 100%;
-    
+    width: 100%; 
 }
 
 
+
+/* ingredient */
 .ingredient{
     width: 100%;
     display: flex;
@@ -341,6 +316,8 @@ i{
 }
 
 
+
+/* subskill */
 .subskill{
     display: flex;
     flex-direction: column;
@@ -348,14 +325,11 @@ i{
     gap: 20px;
 }
 
-
-
 .subskill .container{
     display: flex;
     flex-direction: column; 
     gap: 10px;
 }
-
 
 .subskill .group:not(.speedB){
     padding: 7px;
@@ -366,11 +340,6 @@ i{
 .subskill label{
     cursor:pointer;
 }
-.speedB{
-    cursor:default;
-}
-
-
 
 .border{
     border-bottom: solid 1px rgb(184, 184, 184);
@@ -383,27 +352,24 @@ i{
     display: flex;
 }
 
-
 .berrieS label{
     flex: auto;
 }
+
 
 .speedSM,.ingredientSM{
     display: flex;
     flex-direction: column;
 }
 
-
-
-
-
-
-
 .speedB{
+    cursor:default;
     display: flex;
 }
 
-
+.adjustment{
+    flex-grow: 1;
+}
 
 .speedB .outer{
     position: relative;
@@ -418,10 +384,6 @@ i{
     border:1px solid #000000; /* 子要素がfocusされた時親要素を変更 */
 }
 
-
-
-
-
 .speedB .outer::after{
     position: absolute;
     content: "▼";
@@ -434,20 +396,20 @@ i{
 
 }
 
-
-
-
 .speedB select{
     padding: 0px 15px 0 3px; 
     margin: 0px;
     border-radius: 5px;  
     height: 100%;
 }
+
 .speedB .rightmargin{
     margin-left:4px;
 }
 
 
+
+/* personality */
 .personality{
     display: flex;
     flex-direction: column;
@@ -479,6 +441,8 @@ i{
 }
 
 
+
+/* button */
 .buttondiv{
     flex: auto;
     width: 100%;
@@ -487,7 +451,6 @@ i{
     display: flex;
     align-items: center;
 }
-
 
 .button{
     width:120px;
@@ -501,11 +464,7 @@ i{
 	color: white;
     background-color: #4289c3;
 	border-radius: 5px;
-    
 }
-
-
-
 
 .clear{
     width:80px;
@@ -514,6 +473,8 @@ i{
 }
 
 
+
+/* result */
 .result p{
     font-weight: bold;
     font-size: 18px;
@@ -525,9 +486,7 @@ i{
     font-weight: normal;
     font-size: 16px;
     color: #313131;
-
 }
-
 
 
 .details,.detailsbcl{
@@ -540,13 +499,8 @@ i{
 
 .summary,.summarybcl{
     font-size: 15px;
-    width: fit-content;
-
-    
+    width: fit-content;  
 }
-
-
-
 
 
 .detailslist{
@@ -564,16 +518,13 @@ i{
     margin:10px 0 5px 0;
 }
 
-
 .detailslist p{
     font-size:14px;
     margin:0;
 }
 
-
-
 .detailsbcl{
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .bclh3{
@@ -587,18 +538,17 @@ i{
     font-size:14px;
 }
 
-
 .detailsbcl label{
     margin:0 3px 0 0;
 }
-
 
 .detailsbcl input{
     margin:0 2px 0 0;
 }
 
 
-/* hover指定できるPCを想定したスタイル */
+
+/* hover指定できるPCを想定した装飾 */
 @media (hover: hover) {
 
     .select:hover{
@@ -624,14 +574,11 @@ i{
         opacity:0.7;
         cursor:pointer;
     }
-
 }
     
 /* hoverが使えないタッチ端末を想定した装飾 */
-@media (hover: none) {
+@media (hover: none){
     
-
-
     .button:active {
         margin-top: 2px;
         border-bottom: 1px solid #0686b2;
@@ -648,6 +595,3 @@ i{
     }
 
 }
-
-
-
