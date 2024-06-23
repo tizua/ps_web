@@ -460,16 +460,17 @@ i{
     margin-right:10px;
     
     text-decoration: none;
-    border-bottom: 3px solid #224b9e;
 	color: white;
     background-color: #4289c3;
+    border: solid 2px #4289c3;
 	border-radius: 5px;
 }
 
 .clear{
     width:80px;
-    border-bottom: 3px solid #7589b1;
-    background-color: #aac5db;
+    color: #4289c3;
+    border: solid 2px #4289c3;
+    background-color: #ffffff;
 }
 
 
@@ -561,13 +562,15 @@ i{
     }
 
     .button:hover {
-        margin-top: 2px;
-        border-bottom: 1px solid #0686b2;
+        background-color: #174971;
+        border: solid 2px #174971;
     }
 
     .clear:hover {
-        margin-top: 2px;
-        border-bottom: 1px solid #aac5db;
+        background-color: #92b8d7;
+        border: solid 2px #92b8d7;
+        color: white;
+       
     }
 
     .summary:hover,.summarybcl:hover{
@@ -580,13 +583,14 @@ i{
 @media (hover: none){
     
     .button:active {
-        margin-top: 2px;
-        border-bottom: 1px solid #0686b2;
+        background-color: #174971;
+        border: solid 2px #174971;
     }
 
     .clear:active {
-        margin-top: 2px;
-        border-bottom: 1px solid #aac5db;
+        background-color: #92b8d7;
+        border: solid 2px #92b8d7;
+        color: white;
     }
 
     .summary:active,.summarybcl:active{

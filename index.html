@@ -31,7 +31,7 @@
 
         <div class="inputwrapper">
             <h1><i class="fa-solid fa-pen"></i>情報を入力</h1>
-                <form name="inputform">
+                
                 <div class="input">
 
                     <div class="s info">
@@ -56,100 +56,102 @@
 
                                 
                             </div>
-                            
-                            <div class="infocontainer">
 
-                                <label>
+                            <form name="inputform">
 
-                                    <div class="select levelselect">
-                                        <h3>レベル</h3>
-                                        <select name="level" id="level" class="levelsel" onchange="levelinput()">
-                                            <script>
-                                                for (let i = 1; i < 101; i++) {
-                                                    Sellevel = document.getElementById("level")
-                                                    option = document.createElement("option")
-                                                    option.textContent = i
-                                                    Sellevel.appendChild(option);
+                                <div class="infocontainer">
+                                    
+                                    <label>
 
-                                                    if (i === 100) {
-                                                        option.setAttribute("selected", "selected")
+                                        <div class="select levelselect">
+                                            <h3>レベル</h3>
+                                            <select name="level" id="level" class="levelsel" onchange="levelinput()">
+                                                <script>
+                                                    for (let i = 1; i < 101; i++) {
+                                                        Sellevel = document.getElementById("level")
+                                                        option = document.createElement("option")
+                                                        option.textContent = i
                                                         Sellevel.appendChild(option);
+
+                                                        if (i === 100) {
+                                                            option.setAttribute("selected", "selected")
+                                                            Sellevel.appendChild(option);
+                                                        }
                                                     }
-                                                }
-                                            </script>
-                                        </select>
-                                    </div>
-                                </label>
+                                                </script>
+                                            </select>
+                                        </div>
+                                    </label>
 
 
 
-                                <label>
-                                    <div class="select energyselect">
-                                        <h3>睡眠時のげんき</h3>
+                                    <label>
+                                        <div class="select energyselect">
+                                            <h3>睡眠時のげんき</h3>
 
-                                        <select name="energy" id="energy">
-                                            <script>
-                                                for (let i = 0; i < 151; i++) {
-                                                    Selenergy = document.getElementById("energy")
-                                                    option = document.createElement("option")
-                                                    option.textContent = i
-                                                    Selenergy.appendChild(option);
-
-                                                    if (i === 0) {
-                                                        option.setAttribute("selected", "selected")
+                                            <select name="energy" id="energy">
+                                                <script>
+                                                    for (let i = 0; i < 151; i++) {
+                                                        Selenergy = document.getElementById("energy")
+                                                        option = document.createElement("option")
+                                                        option.textContent = i
                                                         Selenergy.appendChild(option);
+
+                                                        if (i === 0) {
+                                                            option.setAttribute("selected", "selected")
+                                                            Selenergy.appendChild(option);
+                                                        }
+
+
                                                     }
-
-
-                                                }
-                                            </script>
-                                        </select>
-                                    </div>
-                                </label>
+                                                </script>
+                                            </select>
+                                        </div>
+                                    </label>
 
 
 
-                                <label>
-                                    <div class="select timeselect">
-                                        <h3>睡眠時間</h3>
+                                    <label>
+                                        <div class="select timeselect">
+                                            <h3>睡眠時間</h3>
 
-                                        <select name="" id="time">
-                                            <option value="30">30分</option>
-                                            <script>
+                                            <select name="" id="time">
+                                                <option value="30">30分</option>
+                                                <script>
 
-                                                for (let i = 1; i < 25; i++) {
-                                                    Seltime = document.getElementById("time")
-                                                    option = document.createElement("option")
-                                                    option.textContent = i + "時間"
-                                                    option.setAttribute("value", i * 60)
-                                                    Seltime.appendChild(option);
-
-                                                    if (i === 24) {
-                                                        ;
-                                                    } else if (i === 8) {
+                                                    for (let i = 1; i < 25; i++) {
+                                                        Seltime = document.getElementById("time")
                                                         option = document.createElement("option")
-                                                        option.textContent = i + "時間" + "30分"
-                                                        option.setAttribute("value", i * 60 + 30)
-                                                        option.setAttribute("selected", "selected")
+                                                        option.textContent = i + "時間"
+                                                        option.setAttribute("value", i * 60)
                                                         Seltime.appendChild(option);
-                                                    } else {
-                                                        option = document.createElement("option")
-                                                        option.textContent = i + "時間" + "30分"
-                                                        option.setAttribute("value", i * 60 + 30)
-                                                        Seltime.appendChild(option);
+
+                                                        if (i === 24) {
+                                                            ;
+                                                        } else if (i === 8) {
+                                                            option = document.createElement("option")
+                                                            option.textContent = i + "時間" + "30分"
+                                                            option.setAttribute("value", i * 60 + 30)
+                                                            option.setAttribute("selected", "selected")
+                                                            Seltime.appendChild(option);
+                                                        } else {
+                                                            option = document.createElement("option")
+                                                            option.textContent = i + "時間" + "30分"
+                                                            option.setAttribute("value", i * 60 + 30)
+                                                            Seltime.appendChild(option);
+                                                        }
                                                     }
-                                                }
-                                            </script>
+                                                </script>
 
-                                        </select>
-                                    </div>
-                                </label>
-                            </div>
-
+                                            </select>
+                                        </div>
+                                    </label>
+                                </div>
+                            
                         </div>
                     </div>
 
-
+                    
                     <div class="s ingredient">
                         <h2>食材数</h2>
                         <div class="container">
@@ -184,7 +186,7 @@
                         </div>
                     </div>
 
-
+               
                     <div class="s subskill">
                         <h2>サブスキル</h2>
                         <div class="container">
@@ -256,10 +258,9 @@
                     </div>
 
 
-
+                            </form>
 
                 </div>
-            </form>
 
         </div>
 
