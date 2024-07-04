@@ -1,83 +1,85 @@
 /* タブレット以下 */
-@media(max-width:1000px){
+@media(max-width:1000px) {
 
-    .main{
-        width:95%;
+    .main {
+        width: 95%;
     }
-    .namecontainer label{
-        width: 88%;   
+
+    .namecontainer label {
+        width: 88%;
     }
-    .sort{
-        width:12%;
+
+    .sort {
+        width: 12%;
     }
 
 }
 
 
 /* スマホ以下 */
-@media(max-width:700px){
+@media(max-width:700px) {
 
-    .main{
-        width:95%;
+    .main {
+        width: 95%;
     }
 
-    .input{
+    .input {
         padding: 30px 15px;
     }
 
 
-    .info .container{
+    .info .container {
         gap: 25px;
     }
 
-    .namecontainer label{
-        width: 100%;   
-    }
- 
-    .sort{
-        padding-top:5px;
+    .namecontainer label {
+        width: 100%;
     }
 
-    .sort label{
+    .sort {
+        padding-top: 5px;
+    }
+
+    .sort label {
         float: left;
         width: fit-content;
-        margin-right: 5px; 
+        margin-right: 5px;
     }
 
-    .infocontainer{
-        gap:15px;
+    .infocontainer {
+        gap: 15px;
     }
 
-    .infocontainer label{
-        width:100%;
-        
-    }
+    .infocontainer label {
+        width: 100%;
 
-
-    .ingredient .container label{
-        width:100%;
-        flex:auto;
-    }
-
-    .ingredient .container{
-        gap:15px;
     }
 
 
-    .subskill{
-        width:100%;
-        border-right:none;
-        border-bottom:solid 1px rgb(184, 184, 184);
-        margin:20px 0 0 0;
-        padding:0 0 20px 0;
+    .ingredient .container label {
+        width: 100%;
+        flex: auto;
     }
 
- 
-  
-    .personality{
-        width:100%;
+    .ingredient .container {
+        gap: 15px;
+    }
+
+
+    .subskill {
+        width: 100%;
+        border-right: none;
+        border-bottom: solid 1px rgb(184, 184, 184);
+        margin: 20px 0 0 0;
+        padding: 0 0 20px 0;
+    }
+
+
+
+    .personality {
+        width: 100%;
         padding: 0;
-        border-right:none;
+        border-right: none;
     }
 
     .personality .container {
@@ -85,20 +87,20 @@
     }
 
 
-    .button{
+    .button {
         font-size: 14px;
     }
 
 
-    .evbcl{
+    .evbcl {
         margin: 20px 0 15px 0;
     }
 
-    .evbcl,.subskillbcl{
+    .evbcl,
+    .subskillbcl {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
-    
-}
 
+}

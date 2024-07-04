@@ -1,71 +1,74 @@
 /* 全体 */
-*{  
+* {
     /* *でHTML全体に適用、幅や高さにpaddingやborderを含める記述 */
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
-html,body{
-    margin:0;
-    padding:0;
+html,
+body {
+    margin: 0;
+    padding: 0;
     background-color: rgb(243, 245, 247);
     color: #313131;
     font-size: 16px;
     font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    Meiryo,
-    sans-serif;
-    accent-color: #4289c3; 
+        Arial,
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        Meiryo,
+        sans-serif;
+    accent-color: #4289c3;
 }
 
 
 
 /* ヘッダー */
-.header{
-    border-top:solid 5px #1062a4;
+.header {
+    border-top: solid 5px #1062a4;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.164);
-    color: #494949;/*文字色*/
+    color: #494949;
+    /*文字色*/
 }
 
-.header .title{
+.header .title {
     font-size: 18px;
-    font-weight:bold;
+    font-weight: bold;
     padding: 20px 20px;
 }
 
-.header .explanation{
+.header .explanation {
     background-color: #1062a4;
     color: white;
     padding: 10px 20px;
     font-size: 13px;
 }
 
-.title p,.explanation p{
+.title p,
+.explanation p {
     margin: 0;
 }
 
 
 
 /* ラッパー */
-.main{
-    width:800px;
-    margin:40px auto 80px auto;
+.main {
+    width: 800px;
+    margin: 40px auto 80px auto;
     display: flex;
     flex-direction: column;
-    gap:40px;
+    gap: 40px;
 }
 
-.inputwrapper{
+.inputwrapper {
     display: flex;
     flex-direction: column;
-    gap:10px;
+    gap: 10px;
 }
 
-.input{
+.input {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 
     background-color: white;
     border-radius: 10px;
@@ -74,13 +77,13 @@ html,body{
 }
 
 
-.outputwrapper{
+.outputwrapper {
     display: flex;
     flex-direction: column;
-    gap:10px; 
+    gap: 10px;
 }
 
-.output{
+.output {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.164);
@@ -91,11 +94,11 @@ html,body{
 
 /* スマホのデフォルト設定をリセット */
 
-body{
+body {
     -webkit-tap-highlight-color: transparent;
-    }
-    
-select{ 
+}
+
+select {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -108,19 +111,22 @@ select{
 
 
 /* 見出し */
-h1{
-    margin:0px 0px 0px 0px;
+h1 {
+    margin: 0px 0px 0px 0px;
     font-size: 18px;
-    
-    background: transparent;/*背景透明に*/
-    color: #494949;/*文字色*/
+
+    background: transparent;
+    /*背景透明に*/
+    color: #494949;
+    /*文字色*/
 }
 
-h2{
-    margin:0;
+h2 {
+    margin: 0;
     font-size: 13px;
     font-weight: normal;
-    color: #494949;/*文字色*/
+    color: #494949;
+    /*文字色*/
 }
 
 
@@ -130,22 +136,27 @@ h2{
 
 /* selectの親のdiv */
 
-.select,.speedP,.ingredientP{
+.select,
+.speedP,
+.ingredientP {
     position: relative;
     border: 1px solid rgb(184, 184, 184);
-    border-radius: 5px; 
-    pointer-events: none; /* 親none、子autoにして親にhover等を書くことで子要素がhover等された時親要素を変えることができる */
+    border-radius: 5px;
+    pointer-events: none;
+    /* 親none、子autoにして親にhover等を書くことで子要素がhover等された時親要素を変えることができる */
 }
 
 .select:focus-within {
-    border:1px solid #000000; /* 子要素がfocusされた時親要素を変更 */
+    border: 1px solid #000000;
+    /* 子要素がfocusされた時親要素を変更 */
 }
 
 
 /* select自身 */
 
-select,.personality .outer {
-    border:none;
+select,
+.personality .outer {
+    border: none;
     padding: 15px 20px;
     border-radius: 5px;
     font-size: 16px;
@@ -153,47 +164,52 @@ select,.personality .outer {
     pointer-events: auto;
 }
 
-select{
-    cursor:pointer;
+select {
+    cursor: pointer;
 }
 
-select:focus{
-    outline:none;
+select:focus {
+    outline: none;
 }
 
-.disabled{
+.disabled {
     pointer-events: none;
 }
 
 
 /* 重なる見出し */
 
-.select h3,.speedP h3,.ingredientP h3{
+.select h3,
+.speedP h3,
+.ingredientP h3 {
     position: absolute;
     top: -10px;
-    left:10px;
+    left: 10px;
     z-index: 20;
-    
+
     font-size: 13px;
     font-weight: normal;
     padding: 0 3px;
-    margin: 0 ;
+    margin: 0;
 
-    color: #494949;/*文字色*/
-    background-color: white; 
+    color: #494949;
+    /*文字色*/
+    background-color: white;
 }
 
-.disabledh3{   
-    color: #a2a2a2!important; /* 上書き最優先 */
+.disabledh3 {
+    color: #a2a2a2 !important;
+    /* 上書き最優先 */
 }
 
-.select::after{
+.select::after {
     position: absolute;
     content: "▼";
     top: 20px;
     right: 7px;
     font-size: 8px;
-    transform: scale(1.5, 1); /* 平たくする */
+    transform: scale(1.5, 1);
+    /* 平たくする */
     color: #3e3e3e;
     pointer-events: none;
 }
@@ -201,116 +217,117 @@ select:focus{
 
 
 /* ボーダー */
-.info,.ingredient{
-    border-bottom:solid 1px rgb(184, 184, 184);
-    padding-bottom: 20px; 
+.info,
+.ingredient {
+    border-bottom: solid 1px rgb(184, 184, 184);
+    padding-bottom: 20px;
 }
 
-.ingredient{
+.ingredient {
     padding-top: 20px;
 }
 
-.subskill{
-    border-right:solid 1px rgb(184, 184, 184);
+.subskill {
+    border-right: solid 1px rgb(184, 184, 184);
     margin: 20px 0px;
     padding: 0px 20px 0px 0px;
 }
 
-.personality{
-    margin:20px 0px;
+.personality {
+    margin: 20px 0px;
     padding: 0px 0px 0px 20px;
 }
 
-.buttondiv{
-    border-top:solid 1px rgb(184, 184, 184);
+.buttondiv {
+    border-top: solid 1px rgb(184, 184, 184);
     padding-top: 20px;
 }
 
 
 
 /* info */
-i{
-    margin-right:5px;
+i {
+    margin-right: 5px;
 }
 
-.info{
+.info {
     width: 100%;
 }
 
-.info .container{
+.info .container {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 30px;
 }
 
-.namecontainer{
+.namecontainer {
     display: flex;
     flex-wrap: wrap;
 }
 
-.namecontainer label{
+.namecontainer label {
     width: 90%;
     flex: auto;
 }
 
-.namecontainer select{
-    width: 100%; 
+.namecontainer select {
+    width: 100%;
 }
 
-.sort{
-    width:10%;
+.sort {
+    width: 10%;
     flex: auto;
-    font-size:14px;
+    font-size: 14px;
     padding-top: 3px;
 }
 
-.sort label{
+.sort label {
     display: block;
     width: fit-content;
-    float:right;
+    float: right;
     cursor: pointer;
 }
 
-.infocontainer{
+.infocontainer {
     display: flex;
     flex-wrap: wrap;
-    width:100%;
-    gap: 10px;  
+    width: 100%;
+    gap: 10px;
 }
 
-.infocontainer label{
-    width:30%;
-    flex:auto;  
+.infocontainer label {
+    width: 30%;
+    flex: auto;
 }
 
-.info .infocontainer select{
+.info .infocontainer select {
     display: block;
-    width: 100%; 
+    width: 100%;
 }
 
 
 
 /* ingredient */
-.ingredient{
+.ingredient {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.ingredient .container{
+.ingredient .container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.ingredient .container label{
-    width:30%;
-    flex:auto;
+.ingredient .container label {
+    width: 30%;
+    flex: auto;
 }
 
-.ingredient .container select{
+.ingredient .container select {
     display: block;
     width: 100%;
 }
@@ -318,107 +335,111 @@ i{
 
 
 /* subskill */
-.subskill{
+.subskill {
     display: flex;
     flex-direction: column;
-    width:50%;
+    width: 50%;
     gap: 20px;
 }
 
-.subskill .container{
+.subskill .container {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 10px;
 }
 
-.subskill .group:not(.speedB){
+.subskill .group:not(.speedB) {
     padding: 7px;
     border: 1px solid rgb(184, 184, 184);
     border-radius: 5px;
 }
 
-.subskill label{
-    cursor:pointer;
+.subskill label {
+    cursor: pointer;
 }
 
-.border{
+.border {
     border-bottom: solid 1px rgb(184, 184, 184);
     padding-bottom: 7px;
     margin-bottom: 7px;
 }
 
 
-.berrieS{
+.berrieS {
     display: flex;
 }
 
-.berrieS label{
+.berrieS label {
     flex: auto;
 }
 
 
-.speedSM,.ingredientSM{
+.speedSM,
+.ingredientSM {
     display: flex;
     flex-direction: column;
 }
 
-.speedB{
-    cursor:default;
+.speedB {
+    cursor: default;
     display: flex;
 }
 
-.adjustment{
+.adjustment {
     flex-grow: 1;
 }
 
-.speedB .outer{
+.speedB .outer {
     position: relative;
     border: 1px solid rgb(173, 173, 173);
-    border-radius: 5px; 
-    margin-left:5px; 
-    color:#313131;   
-    pointer-events: none; /* 親none、子autoにして親にhover等を書くことで子要素がhover等された時親要素を変えることができる */
+    border-radius: 5px;
+    margin-left: 5px;
+    color: #313131;
+    pointer-events: none;
+    /* 親none、子autoにして親にhover等を書くことで子要素がhover等された時親要素を変えることができる */
 }
 
 .speedB .outer:focus-within {
-    border:1px solid #000000; /* 子要素がfocusされた時親要素を変更 */
+    border: 1px solid #000000;
+    /* 子要素がfocusされた時親要素を変更 */
 }
 
-.speedB .outer::after{
+.speedB .outer::after {
     position: absolute;
     content: "▼";
     top: 7px;
     right: 3px;
     font-size: 8px;
-    transform: scale(1.5, 1); /* 平たくする */
+    transform: scale(1.5, 1);
+    /* 平たくする */
     color: #3e3e3e;
     pointer-events: none;
 
 }
 
-.speedB select{
-    padding: 0px 15px 0 3px; 
+.speedB select {
+    padding: 0px 15px 0 3px;
     margin: 0px;
-    border-radius: 5px;  
+    border-radius: 5px;
     height: 100%;
 }
 
-.speedB .rightmargin{
-    margin-left:4px;
+.speedB .rightmargin {
+    margin-left: 4px;
 }
 
 
 
 /* personality */
-.personality{
+.personality {
     display: flex;
     flex-direction: column;
-    width:50%;
+    width: 50%;
     gap: 20px;
 
 }
 
-.personality .container{
+.personality .container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -426,16 +447,16 @@ i{
 
 
 
-.personality .outer{
+.personality .outer {
     padding: 15px 0px 10px 30px;
     border-radius: 5px;
     font-size: 16px;
     display: flex;
-    
+
 }
 
-.personality label{
-    cursor:pointer;
+.personality label {
+    cursor: pointer;
     width: 30%;
     flex: auto;
 }
@@ -443,31 +464,31 @@ i{
 
 
 /* button */
-.buttondiv{
+.buttondiv {
     flex: auto;
     width: 100%;
     height: 70px;
-    margin-bottom:0px;
+    margin-bottom: 0px;
     display: flex;
     align-items: center;
 }
 
-.button{
-    width:120px;
+.button {
+    width: 120px;
     padding: 10px 0px;
-	font-weight: bold;
+    font-weight: bold;
     border: none;
-    margin-right:10px;
-    
+    margin-right: 10px;
+
     text-decoration: none;
-	color: white;
+    color: white;
     background-color: #4289c3;
     border: solid 2px #4289c3;
-	border-radius: 5px;
+    border-radius: 5px;
 }
 
-.clear{
-    width:80px;
+.clear {
+    width: 80px;
     color: #4289c3;
     border: solid 2px #4289c3;
     background-color: #ffffff;
@@ -476,75 +497,81 @@ i{
 
 
 /* result */
-.result p{
+.result p {
     font-weight: bold;
     font-size: 18px;
-    margin:0 0 20px 0;
-    color: #494949;/*文字色*/
+    margin: 0 0 20px 0;
+    color: #494949;
+    /*文字色*/
 }
 
-.result span{
+.result span {
     font-weight: normal;
     font-size: 16px;
     color: #313131;
 }
 
 
-.details,.detailsbcl{
-    display:none;
+.details,
+.detailsbcl {
+    display: none;
 }
 
-.detailslist,.plusbcl{
-    margin-left:20px;
+.detailslist,
+.plusbcl {
+    margin-left: 20px;
 }
 
-.summary,.summarybcl{
+.summary,
+.summarybcl {
     font-size: 15px;
-    width: fit-content;  
+    width: fit-content;
 }
 
 
-.plusbcl{
+.plusbcl {
     margin-bottom: 20px;
 }
 
-.detailslist h3{
-    font-size:14px;
-    margin:20px 0 5px 0;
+.detailslist h3 {
+    font-size: 14px;
+    margin: 20px 0 5px 0;
     font-weight: 600;
-    color: #494949;/*文字色*/
+    color: #494949;
+    /*文字色*/
 }
 
-.detailslist h3:first-child{
-    margin:10px 0 5px 0;
+.detailslist h3:first-child {
+    margin: 10px 0 5px 0;
 }
 
-.detailslist p{
-    font-size:14px;
-    margin:0;
+.detailslist p {
+    font-size: 14px;
+    margin: 0;
 }
 
-.details{
+.details {
     margin-top: 10px;
 }
 
-.bclh3{
-    font-size:16px;
-    margin:10px 0px 5px 20px;
+.bclh3 {
+    font-size: 16px;
+    margin: 10px 0px 5px 20px;
     font-weight: 600;
-    color: #494949;/*文字色*/
+    color: #494949;
+    /*文字色*/
 }
 
-.plusbcl{
-    font-size:14px;
+.plusbcl {
+    font-size: 14px;
 }
 
-.detailsbcl label{
-    margin:0 3px 0 0;
+.detailsbcl label {
+    margin: 0 3px 0 0;
 }
 
-.detailsbcl input{
-    margin:0 2px 0 0;
+.detailsbcl input {
+    margin: 0 2px 0 0;
 }
 
 
@@ -552,11 +579,11 @@ i{
 /* hover指定できるPCを想定した装飾 */
 @media (hover: hover) {
 
-    .select:hover{
-        border:1px solid #000000;
+    .select:hover {
+        border: 1px solid #000000;
     }
 
-    .speedB .outer:hover{
+    .speedB .outer:hover {
         border: 1px solid rgb(0, 0, 0);
 
     }
@@ -570,18 +597,19 @@ i{
         background-color: #92b8d7;
         border: solid 2px #92b8d7;
         color: white;
-       
+
     }
 
-    .summary:hover,.summarybcl:hover{
-        opacity:0.7;
-        cursor:pointer;
+    .summary:hover,
+    .summarybcl:hover {
+        opacity: 0.7;
+        cursor: pointer;
     }
 }
-    
+
 /* hoverが使えないタッチ端末を想定した装飾 */
-@media (hover: none){
-    
+@media (hover: none) {
+
     .button:active {
         background-color: #174971;
         border: solid 2px #174971;
@@ -593,9 +621,10 @@ i{
         color: white;
     }
 
-    .summary:active,.summarybcl:active{
-        opacity:0.7;
-        cursor:pointer;
+    .summary:active,
+    .summarybcl:active {
+        opacity: 0.7;
+        cursor: pointer;
     }
 
 }

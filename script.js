@@ -87,21 +87,20 @@ let Oriingredient123 = 3;
 let Oribcl = 0;
 let Orievolution = 1;
 let Orievolutionlimit = 1;
-let nameflag = 0;
+let nameflag = "normal";
 
 
 
-//名前入力したときの関数
+//名前変更されたときの関数
 window.nameinput = () => {
     console.log("nameinput")
     let name = document.getElementById('name');
     let nameVar = String(name.value);
-    nameflag = 0;
+    nameflag = "change";
 
     for (let i = 0; i < pokemondatas.length; i++) {
         if (pokemondatas[i].name === nameVar) {
 
-            nameflag = 1;
 
             //食材候補リセット
             let ingredient1 = document.getElementById('ingredient1');
@@ -225,6 +224,49 @@ window.clearbtn = () => {
     // let detailsbcl = document.getElementById("detailsbcl")
     // detailsbcl.style.display = "none"
 
+
+    //ポケモンによって結果の進化回数の初期チェックを変えたり非活性にする処理
+    let evbclzero = document.getElementById("evbclzero");
+    let evbcl1 = document.getElementById("evbcl1");
+    let evbcl2 = document.getElementById("evbcl2");
+
+
+    // 最大所持数のサブスキルのチェックリセット
+    let subskillbclS = document.getElementById("subskillbclS");
+    let subskillbclM = document.getElementById("subskillbclM");
+    let subskillbclL = document.getElementById("subskillbclL");
+
+    subskillbclS.checked = false
+    subskillbclM.checked = false
+    subskillbclL.checked = false
+
+
+    //進化回数の初期チェック変える
+    evbclzero.checked = true; //初期チェックリセット
+
+    if (Orievolution === 1) {
+        evbclzero.checked = true;
+    } else if (Orievolution === 2) {
+        evbcl1.checked = true;
+    } else if (Orievolution === 3) {
+        evbcl2.checked = true;
+    }
+
+
+    //進化回数非活性にする
+    evbcl1.disabled = false; //リセット
+    evbcl2.disabled = false;
+
+    if (Orievolution === 1) {
+        evbcl1.disabled = true;
+        evbcl2.disabled = true;
+    }
+    if (Orievolution === 2) {
+        evbcl2.disabled = true;
+    }
+
+    bclinput(); //最大所持数の関数発動 
+
     console.log("clear")
 }
 
@@ -252,16 +294,6 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
     let detailsbcl = document.getElementById("detailsbcl")
     detailsbcl.style.display = "none"
 
-
-
-    //ポケモン名が入力されていなかった時の処理
-    if (nameflag === 0) { //名前入力したときポケモンの名前を入力しなかったためnameflag===1になっていない状態
-        let resultEle = document.getElementById("result");
-        resultEle.setAttribute("class", "error"); //css変えるためにクラス変えてる
-        resultEle.innerHTML = "<p>ポケモン名を入力してください</p>";
-        console.log("文字なし");
-        return //関数終了させる
-    }
 
 
 
@@ -554,50 +586,45 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
 
 
 
-    //ポケモンによって結果の進化回数の初期チェックを変えたり非活性にする処理
-    let evbclzero = document.getElementById("evbclzero");
-    let evbcl1 = document.getElementById("evbcl1");
-    let evbcl2 = document.getElementById("evbcl2");
+    //最大所持数関連
+
+    if (nameflag === "change") { //名前変わってた場合のみポケモンによって結果の進化回数の初期チェックを変えたり非活性にする処理する
 
 
-    //新しく計算押したら最大所持数のサブスキルのチェックリセット
-    let subskillbclS = document.getElementById("subskillbclS");
-    let subskillbclM = document.getElementById("subskillbclM");
-    let subskillbclL = document.getElementById("subskillbclL");
-
-    subskillbclS.checked = false
-    subskillbclM.checked = false
-    subskillbclL.checked = false
+        let evbclzero = document.getElementById("evbclzero");
+        let evbcl1 = document.getElementById("evbcl1");
+        let evbcl2 = document.getElementById("evbcl2");
 
 
-    //進化回数の初期チェック変える
-    evbclzero.checked = true; //初期チェックリセット
+        //進化回数の初期チェック変える
+        evbclzero.checked = true; //初期チェックリセット
 
-    if (Orievolution === 1) {
-        evbclzero.checked = true;
-    } else if (Orievolution === 2) {
-        evbcl1.checked = true;
-    } else if (Orievolution === 3) {
-        evbcl2.checked = true;
+        if (Orievolution === 1) {
+            evbclzero.checked = true;
+        } else if (Orievolution === 2) {
+            evbcl1.checked = true;
+        } else if (Orievolution === 3) {
+            evbcl2.checked = true;
+        }
+
+
+        //進化回数非活性にする
+        evbcl1.disabled = false; //リセット
+        evbcl2.disabled = false;
+
+        if (Orievolution === 1) {
+            evbcl1.disabled = true;
+            evbcl2.disabled = true;
+        }
+        if (Orievolution === 2) {
+            evbcl2.disabled = true;
+        }
     }
-
-
-    //進化回数非活性にする
-    evbcl1.disabled = false; //リセット
-    evbcl2.disabled = false;
-
-    if (Orievolution === 1) {
-        evbcl1.disabled = true;
-        evbcl2.disabled = true;
-    }
-    if (Orievolution === 2) {
-        evbcl2.disabled = true;
-    }
-
     bclinput(); //最大所持数の関数発動 
 
-}
+    nameflag = "normal"; //nameflagリセット
 
+}
 
 
 //最大所持数変える関数
