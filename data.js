@@ -2,5 +2,4 @@ const pokemondatas = [{ 'number': 1, 'name': 'フシギダネ', 'specialty': '�
 
 
 
-
 export { pokemondatas };
