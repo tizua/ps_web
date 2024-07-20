@@ -560,10 +560,10 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
     ingredientperp.innerHTML = `基準食材確率:${Oriingredientper}%×性格補正:${ingredientPVar}×サブスキル補正:${Math.round((1 + ingredientSMVar) * 100) / 100}` //小数点第3位以下を四捨五入する処理
 
     berriesh3.textContent = `入手きのみ数 ${helpingcount2}個`
-    berriesp.innerHTML = `(おてつだい回数:${helpingcount}回-食材入手おてつだい回数:${ingredientcount}回)×きのみ数:${berries}個`
+    berriesp.innerHTML = `きのみ入手おてつだい回数:${helpingcount - ingredientcount}回×きのみ数:${berries}個`
 
     ingredienth3.textContent = `入手食材数 ${ingredientcount2}個`
-    ingredientp.innerHTML = `おてつだい回数:${helpingcount}回×食材確率:${ingredientper2}%×平均食材入手数:${ingredient}個`
+    ingredientp.innerHTML = `食材入手おてつだい回数:${ingredientcount}回×平均食材入手数:${ingredient}個`
 
     resulth3.textContent = `結果 ${result}個`
     resultp.innerHTML = `入手きのみ数:${helpingcount2}個+入手食材数:${ingredientcount2}個`
