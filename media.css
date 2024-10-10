@@ -27,6 +27,7 @@
         width: 95%;
     }
 
+
     .input {
         padding: 30px 15px;
     }
@@ -74,7 +75,7 @@
         width: 100%;
         border-right: none;
         border-bottom: solid 1px rgb(184, 184, 184);
-        margin: 20px 0 0 0;
+        margin: 0 0 20px 0;
         padding: 0 0 20px 0;
     }
 
@@ -91,17 +92,43 @@
     }
 
 
+
+
+
+    .ribbon .outer {
+        padding: 15px 10px 10px 10px;
+        font-size: 12px;
+    }
+
+
+    .ribbon input {
+        margin: 0 0 0 0;
+        vertical-align: -2px;
+        transform: scale(0.7)
+    }
+
+
+
+
+
+
     .button {
         font-size: 14px;
     }
 
 
-    .evbcl {
-        margin: 20px 0 15px 0;
+    .bclh3 {
+        margin: 20px 0px 20px 20px;
     }
 
     .evbcl,
     .subskillbcl {
+        margin: 0 0 15px 0;
+    }
+
+    .evbcl,
+    .subskillbcl,
+    .ribbonbcl {
         display: flex;
         flex-direction: column;
         gap: 10px;

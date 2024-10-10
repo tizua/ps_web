@@ -260,6 +260,24 @@
 
 
 
+                <div class="s ribbon">
+                    <h2>おやすみリボン</h2>
+
+                    <div class="ribbonribbon">
+                        <div class="outer">
+                            <label><input type="radio" name="ribbon" id="ribbonzero" value="0" checked>なし</label>
+                            <label><input type="radio" name="ribbon" value="200">200時間</label>
+                            <label><input type="radio" name="ribbon" value="500">500時間</label>
+                            <label><input type="radio" name="ribbon" value="1000">1000時間</label>
+                            <label><input type="radio" name="ribbon" value="2000">2000時間</label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
                 <div class="buttondiv">
                     <input type="button" value="計算" class="button" onclick="calculationbtn()">
                     <input type="button" value="クリア" class="button clear" onclick="clearbtn()">
@@ -312,6 +330,20 @@
                             <label><input type="checkbox" name="subskillbcl" id="subskillbclL"
                                     onchange="bclinput()">最大所持数アップL</label>
                         </div>
+
+                        <div class="ribbonbcl">
+                            <label><input type="radio" name="ribbonbcl" id="ribbonbclzero" value="0"
+                                    onchange="bclinput()" checked>おやすみリボン なし</label>
+                            <label><input type="radio" name="ribbonbcl" value="1" onchange="bclinput()">おやすみリボン
+                                200時間</label>
+                            <label><input type="radio" name="ribbonbcl" value="3" onchange="bclinput()">おやすみリボン
+                                500時間</label>
+                            <label><input type="radio" name="ribbonbcl" value="6" onchange="bclinput()">おやすみリボン
+                                1000時間</label>
+                            <label><input type="radio" name="ribbonbcl" value="8" onchange="bclinput()">おやすみリボン
+                                2000時間</label>
+                        </div>
+
                     </div>
 
 

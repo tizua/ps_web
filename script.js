@@ -161,6 +161,23 @@ window.nameinput = () => {
             console.log("Orievolution", Orievolution, "Orievolutionlimit", Orievolutionlimit)
 
 
+            //おやすみリボン適応じゃなかったら非活性にする
+            let ribbon = document.getElementsByName("ribbon");
+            let ribbonzero = document.getElementById("ribbonzero");
+            //おやすみリボン非活性リセット
+            for (let i = 0; i < ribbon.length; i++) {
+                ribbon[i].disabled = false;
+            }
+            //もう進化しないポケモンはおやすみリボン非活性化
+            if (Orievolutionlimit - Orievolution === 0) {
+                for (let i = 0; i < ribbon.length; i++) {
+                    ribbon[i].disabled = true;
+                }
+                ribbonzero.checked = true; //非活性でもチェックはなしに指しておく
+            }
+            console.log("Orievolutionlimit - Orievolution", Orievolutionlimit - Orievolution)
+
+
             //きのみの数を設定
             if (pokemondatas[i].specialty == "きのみ") {
                 Oriberries = 2;
@@ -239,6 +256,11 @@ window.clearbtn = () => {
     subskillbclS.checked = false
     subskillbclM.checked = false
     subskillbclL.checked = false
+
+
+    // おやすみリボンのチェックなしにする
+    let ribbonbclzero = document.getElementById("ribbonbclzero");
+    ribbonbclzero.checked = true
 
 
     //進化回数の初期チェック変える
@@ -374,15 +396,48 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
 
 
     //食材確率性格補正のどのラジオボタンが押されているかの確認
-    let ingredientP = document.getElementsByName('ingredientP'); //ラジオボタンのspeedPを全部ゲット
+    let ingredientP = document.getElementsByName('ingredientP'); //ラジオボタンのingredientPを全部ゲット
     let ingredientPVar = 0;
 
     for (let i = 0; i < ingredientP.length; i++) {
-        if (ingredientP[i].checked) { //speedPをfor文で回してチェックされてたらvalueゲット
+        if (ingredientP[i].checked) { //ingredientPをfor文で回してチェックされてたらvalueゲット
             ingredientPVar = Number(ingredientP[i].value);
         }
     }
     console.log("ingredientPVar", ingredientPVar)
+
+
+
+    //おやすみリボンのどのラジオボタンが押されているかの確認
+    let ribbon = document.getElementsByName('ribbon');
+    let ribbonTime = 0;
+    let ribbonVar = 0;
+
+    //チェックされているラジオボタンのvalueを入手
+    for (let i = 0; i < ribbon.length; i++) {
+        if (ribbon[i].checked) {
+            ribbonTime = Number(ribbon[i].value);
+        }
+    }
+    console.log("ribbonTime", ribbonTime)
+
+    //進化回数によってribbonVar変える
+    if (Orievolutionlimit - Orievolution === 2) { //2回進化が残ってる場合
+        if (ribbonTime === 500 || ribbonTime === 1000) {
+            ribbonVar = 0.11
+        } else if (ribbonTime === 2000) {
+            ribbonVar = 0.25
+        }
+    } else if (Orievolutionlimit - Orievolution === 1) { //1回進化が残ってる場合
+        if (ribbonTime === 500 || ribbonTime === 1000) {
+            ribbonVar = 0.05
+        } else if (ribbonTime === 2000) {
+            ribbonVar = 0.12
+        }
+    } else if (Orievolutionlimit - Orievolution === 0) { //もう進化しない場合
+        ribbonVar = 0
+    }
+    console.log("ribbonVar", ribbonVar)
 
 
 
@@ -441,7 +496,9 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
     console.log("subskillspeed", subskillspeed)
     subskillspeed = 1 - subskillspeed;
 
-    let totalspeed = Orispeed * levelspeed * speedPVar * subskillspeed; //計算結果
+    let ribbonspeed = 1 - ribbonVar
+
+    let totalspeed = Orispeed * levelspeed * speedPVar * subskillspeed * ribbonspeed; //計算結果
     console.log("元気補正前totalspeed" + totalspeed)
     totalspeed = totalspeed * energyave //元気補正追加
     console.log("元気補正後totalspeed" + totalspeed)
@@ -449,7 +506,7 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
     console.log("totalspeed", totalspeed);
     let totalspeed2 = totalspeed / 60; //秒を分に直す
     totalspeed2 = Math.round(totalspeed2 * 10) / 10; //小数点第2位以下を四捨五入処理
-    console.log(totalspeed2, Orispeed, levelspeed, speedPVar, subskillspeed);
+    console.log(totalspeed2, Orispeed, levelspeed, speedPVar, subskillspeed, ribbonspeed);
 
 
 
@@ -661,6 +718,21 @@ window.bclinput = () => {
     }
     console.log(`S${S}M${M}L${L}`)
 
+
+
+    //おやすみリボン
+    let ribbonbcls = document.getElementsByName("ribbonbcl");
+    let ribbonbcllVar = 0;
+
+    for (let i = 0; i < ribbonbcls.length; i++) {
+        if (ribbonbcls.item(i).checked) {
+            ribbonbcllVar = Number(ribbonbcls.item(i).value);
+        }
+    }
+    console.log(`ribbonbcllVar${ribbonbcllVar}`)
+
+
+    //最大所持数変更
     let bclh3 = document.getElementById("bclh3")
-    bclh3.textContent = `${Oribcl + evbclVar + S + M + L}個`
+    bclh3.textContent = `${Oribcl + evbclVar + S + M + L + ribbonbcllVar}個`
 }
