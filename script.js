@@ -293,6 +293,12 @@ window.clearbtn = () => {
 }
 
 
+//おやすみリボンの？押したときの関数
+window.dialogribbon = () => {
+    alert("これが確認ダイアログです。");
+}
+
+
 
 //計算ボタンクリックしたときの関数
 window.calculationbtn = () => {  //scriptタグにtype="module"がある場合、onclickの関数はconstの代わりにwindow.にしないとエラーがでて発動しない
@@ -608,7 +614,7 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
 
     //作ったタグに文入れる
     speedh3.textContent = `おてつだいスピード ${totalspeed}秒`
-    speedp.innerHTML = `基準おてつだい時間:${Orispeed}秒×レベル補正:${Math.round(levelspeed * 1000) / 1000}×性格補正:${speedPVar}×サブスキル補正:${Math.round(subskillspeed * 100) / 100}×げんき補正:${energyave}`
+    speedp.innerHTML = `基準おてつだい時間:${Orispeed}秒×レベル補正:${Math.round(levelspeed * 1000) / 1000}×性格補正:${speedPVar}×サブスキル補正:${Math.round(subskillspeed * 100) / 100}×おやすみリボン補正:${ribbonspeed}×げんき補正:${energyave}`
 
     counth3.textContent = `おてつだい回数 ${helpingcount}回`
     countp.innerHTML = `睡眠時間:${time}分÷おてつだいスピード:${totalspeed2}分`
