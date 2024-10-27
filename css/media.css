@@ -107,7 +107,9 @@
         transform: scale(0.7)
     }
 
-
+    .ribboninfo {
+        padding: 0 0 0 1px;
+    }
 
 
 
@@ -121,6 +123,11 @@
         margin: 20px 0px 20px 20px;
     }
 
+    .plusbcl {
+        margin-bottom: 30px;
+    }
+
+
     .evbcl,
     .subskillbcl {
         margin: 0 0 15px 0;
@@ -132,6 +139,11 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+
+    .detailslist h3:first-child {
+        margin: 20px 0 5px 0;
     }
 
 }

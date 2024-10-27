@@ -293,10 +293,43 @@ window.clearbtn = () => {
 }
 
 
-//おやすみリボンの？押したときの関数
-window.dialogribbon = () => {
-    alert("これが確認ダイアログです。");
+
+
+// スマホ用のスクロールを防止するための関数を定義
+window.preventScroll = (event) => {
+
+    if (event.touches.length > 1) { // 2本指以上のタッチ操作 (拡大) は許可
+        return;
+    }
+    event.preventDefault(); // 1本指のタッチ操作(スクロール)は無効化
 }
+
+//おやすみリボンの？押したときの関数
+window.modalribbon = () => {
+    let modal = document.getElementById("modal")
+    modal.setAttribute("class", "modal is_active") //モーダル開いた時のクラス追加
+    document.body.setAttribute("class", "no_scroll") //スクロールできないようにするクラスをbodyに追加
+    document.addEventListener('touchmove', preventScroll, { passive: false }); //スマホ用のスクロールできないようにする処理、これが一度発動することによってリスナーが追加、タッチするごとに常にpreventScrollが発動する
+}
+
+
+//モーダル閉じる関数
+let modal = document.getElementById('modal');
+let modalContainer = document.getElementById('modal_container');
+
+modal.addEventListener('click', (event) => { //モーダル(背景も含め)をクリックすると発生する
+
+    let modalContainerClick = modalContainer.contains(event.target); //modalContainerをクリックしたときは閉じないようにする、modalContainerをクリックするとtrueになる変数(親.contains(子) 親に子が含まれていたらTrueになる、modalContainerとevent.targetは同じだからtrueになる)
+    if (modalContainerClick) {
+        console.log('modalContainerをクリック、閉じない');
+    } else {
+        modal.setAttribute("class", "modal") //modalContainer以外をクリックするとモーダルが閉じるようにクラスを変更
+        document.body.setAttribute("class", "") //スクロールできないようにするのを解除
+        document.removeEventListener('touchmove', preventScroll); //スマホ用のスクロールできないようにするのを解除、リスナー削除
+        console.log('modalをクリック、閉じる');
+    }
+});
+
 
 
 
