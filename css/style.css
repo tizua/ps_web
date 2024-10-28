@@ -534,26 +534,19 @@ i {
     align-items: center;
 }
 
-.ribboninfo::after {
-    content: "?";
+.ribboninfo {
+    max-width: 17px;
+    height: auto;
+    /* 縦横比を保持、普通にwidthとheigthで指定するとスマホで見ると崩れることがある */
+    margin: 0 0 1px 3px;
+    cursor: pointer;
+    transform-origin: center;
+    /* 中央基準で変形 */
 }
 
-.ribboninfo {
-    display: flex;
-    /* align-items: center; flexboxの縦の位置を中央揃えする */
-    align-items: center;
-    /* justify-content: center;; flexboxの横の位置を中央揃えする */
-    justify-content: center;
-    margin: 0 5px 0 5px;
-    padding: 0 0.4px 0 0;
-    width: 17px;
-    height: 17px;
-    font-size: 11px;
-    color: #373737;
-    font-weight: bold;
-    background-color: white;
-    border-radius: 50%;
-    border-color: #737373;
+.ribboninfo:active {
+    transform: scale(0.95);
+    /* 95%に縮小 */
 }
 
 
