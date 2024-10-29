@@ -220,19 +220,18 @@ select:focus {
 /* ボーダー */
 .info,
 .ingredient,
-.ribbon {
+.ribbon,
+.field {
     border-bottom: solid 1px rgb(184, 184, 184);
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
 
-.ribbon {
-    border-top: solid 1px rgb(184, 184, 184);
-    padding-top: 20px;
-    margin-top: 20px;
+.subandpbottomborder {
+    width: 100%;
+    border-bottom: solid 1px rgb(184, 184, 184);
+    padding-bottom: 20px;
 }
-
-
 
 .subskill {
     border-right: solid 1px rgb(184, 184, 184);
@@ -308,6 +307,8 @@ i {
     display: block;
     width: 100%;
 }
+
+
 
 
 
@@ -484,7 +485,7 @@ i {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 10px;
+    gap: 12px;
 }
 
 .ribbon .outer {
@@ -538,10 +539,11 @@ i {
     max-width: 17px;
     height: auto;
     /* 縦横比を保持、普通にwidthとheigthで指定するとスマホで見ると崩れることがある */
-    margin: 0 0 1px 3px;
+    margin: 0 0 1.5px 3px;
     cursor: pointer;
     transform-origin: center;
     /* 中央基準で変形 */
+    opacity: 0.9;
 }
 
 .ribboninfo:active {
@@ -603,6 +605,42 @@ i {
 .no_scroll {
     overflow: hidden;
 }
+
+
+
+
+/* other */
+.other {
+    width: 100%;
+}
+
+.other summary {
+    margin: 20px 0 25px 0;
+}
+
+
+
+/* field */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+
+.campouter {
+    /* padding-right: 20px;*/
+    width: 100%;
+}
+
+.camp {
+    padding: 7px;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 5px;
+
+}
+
 
 
 

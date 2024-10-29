@@ -480,6 +480,20 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
 
 
 
+
+    //いいキャンプチケットがチェックされてるかの確認
+    let camp = document.getElementById("camp")
+    let campVar = 1;  //for文の中はスコープあるから外で変数宣言しないといけない
+
+    if (camp.checked) { //いいキャンプチケットがチェックされてたらcampVarを0.8にする
+        campVar = Number(camp.value)
+    }
+
+    console.log("campVar", campVar)
+
+
+
+
     //時間を分になおす
     let time = Number(document.getElementById("time").value)
     console.log("time", time);
@@ -537,7 +551,9 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
 
     let ribbonspeed = 1 - ribbonVar
 
-    let totalspeed = Orispeed * levelspeed * speedPVar * subskillspeed * ribbonspeed; //計算結果
+    let campspeed = campVar
+
+    let totalspeed = Orispeed * levelspeed * speedPVar * subskillspeed * ribbonspeed * campspeed; //計算結果
     console.log("元気補正前totalspeed" + totalspeed)
     totalspeed = totalspeed * energyave //元気補正追加
     console.log("元気補正後totalspeed" + totalspeed)
@@ -545,7 +561,7 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
     console.log("totalspeed", totalspeed);
     let totalspeed2 = totalspeed / 60; //秒を分に直す
     totalspeed2 = Math.round(totalspeed2 * 10) / 10; //小数点第2位以下を四捨五入処理
-    console.log(totalspeed2, Orispeed, levelspeed, speedPVar, subskillspeed, ribbonspeed);
+    console.log(totalspeed2, Orispeed, levelspeed, speedPVar, subskillspeed, ribbonspeed, campspeed);
 
 
 
@@ -647,7 +663,7 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
 
     //作ったタグに文入れる
     speedh3.textContent = `おてつだいスピード ${totalspeed}秒`
-    speedp.innerHTML = `基準おてつだい時間:${Orispeed}秒×レベル補正:${Math.round(levelspeed * 1000) / 1000}×性格補正:${speedPVar}×サブスキル補正:${Math.round(subskillspeed * 100) / 100}×おやすみリボン補正:${ribbonspeed}×げんき補正:${energyave}`
+    speedp.innerHTML = `基準おてつだい時間:${Orispeed}秒×レベル補正:${Math.round(levelspeed * 1000) / 1000}×性格補正:${speedPVar}×サブスキル補正:${Math.round(subskillspeed * 100) / 100}×おやすみリボン補正:${ribbonspeed}×いいキャンプチケット補正:${campspeed}×げんき補正:${energyave}`
 
     counth3.textContent = `おてつだい回数 ${helpingcount}回`
     countp.innerHTML = `睡眠時間:${time}分÷おてつだいスピード:${totalspeed2}分`

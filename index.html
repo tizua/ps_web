@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css\media.css">
     <script src="https://kit.fontawesome.com/8568b07cf6.js" crossorigin="anonymous"></script>
     <title>ポケモンスリープ 睡眠時に何個きのみや食材を拾ってくるか計算</title>
-    <meta name=”description” content=”入内容から何個そのポケモンがきのみと食材を持って来るかシミュレーションします。きのみと食材が最大所持数内で収まるのか調べたい時などに使えます。”>
+    <meta name=”description”
+        content=”入内容から何個そのポケモンがきのみと食材を持って来るかシミュレーションします。きのみと食材が最大所持数内で収まるのか調べたい時などに使えます。睡眠時以外の計算にも使えます。”>
     <meta name="google-site-verification" content="BVmv_n05r_k8MN9GrJKbFCXDxXyUsUuENsRTCeElmB8" />
 </head>
 
@@ -21,7 +22,7 @@
 
             </div>
             <div class="explanation">
-                <p>入力内容から何時間で何個そのポケモンがきのみと食材を拾って来るか計算するシミュレーターです。きのみと食材が最大所持数内で収まるのか調べたい時などに役立ちます。睡眠時以外の計算にも使えます。</p>
+                <p>入力内容から何時間で何個そのポケモンがきのみと食材を拾って来るか計算するシミュレーターです。きのみと食材が最大所持数内で収まるのか調べたい時などに役立ちます。</p>
             </div>
         </div>
     </header>
@@ -147,6 +148,15 @@
                                         </select>
                                     </div>
                                 </label>
+
+
+
+
+
+
+
+
+
                             </div>
 
                     </div>
@@ -260,39 +270,62 @@
 
 
 
-                <div class="s ribbon">
-                    <div class="ribboninfoouter">
-                        <h2>おやすみリボン</h2>
-                        <img src="img\question.png" class="ribboninfo" onclick="modalribbon()">
-                    </div>
+                <div class="subandpbottomborder"></div>
 
 
-                    <div class="modal" id="modal">
-                        <div class="modal_container" id="modal_container">
-                            <!-- モーダル内部のコンテンツ -->
 
-                            <p>進化先がないポケモンの場合、おてつだいスピードに変化がないため選択できません。</p>
+                <details id="other" class="other">
+                    <summary id="summary" class="summary">その他</summary>
 
+
+
+
+                    <div class="s ribbon">
+                        <div class="ribboninfoouter">
+                            <h2>おやすみリボン</h2>
+                            <img src="img\question.png" class="ribboninfo" onclick="modalribbon()">
                         </div>
-                    </div>
 
 
-                    <div class="ribbonribbon">
-                        <div class="outer">
-                            <label><input type="radio" name="ribbon" id="ribbonzero" value="0" checked>なし</label>
-                            <label><input type="radio" name="ribbon" value="200">200時間</label>
-                            <label><input type="radio" name="ribbon" value="500">500時間</label>
-                            <label><input type="radio" name="ribbon" value="1000">1000時間</label>
-                            <label><input type="radio" name="ribbon" value="2000">2000時間</label>
+                        <div class="modal" id="modal">
+                            <div class="modal_container" id="modal_container">
+                                <!-- モーダル内部のコンテンツ -->
+
+                                <p>進化先がないポケモンの場合、おてつだいスピードに変化がないため選択できません。</p>
+
+                            </div>
                         </div>
+
+
+                        <div class="ribbonribbon">
+                            <div class="outer">
+                                <label><input type="radio" name="ribbon" id="ribbonzero" value="0" checked>なし</label>
+                                <label><input type="radio" name="ribbon" value="200">200時間</label>
+                                <label><input type="radio" name="ribbon" value="500">500時間</label>
+                                <label><input type="radio" name="ribbon" value="1000">1000時間</label>
+                                <label><input type="radio" name="ribbon" value="2000">2000時間</label>
+                            </div>
+                        </div>
+
+
                     </div>
 
 
-                </div>
+
+                    <div class="s field">
+
+                        <h2>フィールド</h2>
 
 
+                        <div class="campouter">
+                            <div class="camp">
+                                <label><input type="checkbox" id="camp" value="0.8">いいキャンプチケット</label>
+                            </div>
+                        </div>
 
+                    </div>
 
+                </details>
 
                 <div class="buttondiv">
                     <input type="button" value="計算" class="button" onclick="calculationbtn()">
