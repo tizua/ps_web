@@ -551,17 +551,16 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
 
     let ribbonspeed = 1 - ribbonVar
 
-    let campspeed = campVar
 
-    let totalspeed = Orispeed * levelspeed * speedPVar * subskillspeed * ribbonspeed * campspeed; //計算結果
-    console.log("元気補正前totalspeed" + totalspeed)
-    totalspeed = totalspeed * energyave //元気補正追加
-    console.log("元気補正後totalspeed" + totalspeed)
+    let totalspeed = Orispeed * levelspeed * speedPVar * subskillspeed * ribbonspeed; //計算結果
+    console.log("元気&キャンプ補正前totalspeed" + totalspeed)
+    totalspeed = totalspeed * energyave * campVar //元気補正&キャンプ補正追加
+    console.log("元気&キャンプ補正追加後totalspeed" + totalspeed)
     totalspeed = Math.round(totalspeed); //小数点四捨五入
     console.log("totalspeed", totalspeed);
     let totalspeed2 = totalspeed / 60; //秒を分に直す
     totalspeed2 = Math.round(totalspeed2 * 10) / 10; //小数点第2位以下を四捨五入処理
-    console.log(totalspeed2, Orispeed, levelspeed, speedPVar, subskillspeed, ribbonspeed, campspeed);
+    console.log(totalspeed2, Orispeed, levelspeed, speedPVar, subskillspeed, ribbonspeed, energyave, campVar);
 
 
 
@@ -663,7 +662,7 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
 
     //作ったタグに文入れる
     speedh3.textContent = `おてつだいスピード ${totalspeed}秒`
-    speedp.innerHTML = `基準おてつだい時間:${Orispeed}秒×レベル補正:${Math.round(levelspeed * 1000) / 1000}×性格補正:${speedPVar}×サブスキル補正:${Math.round(subskillspeed * 100) / 100}×おやすみリボン補正:${ribbonspeed}×いいキャンプチケット補正:${campspeed}×げんき補正:${energyave}`
+    speedp.innerHTML = `基準おてつだい時間:${Orispeed}秒×レベル補正:${Math.round(levelspeed * 1000) / 1000}×性格補正:${speedPVar}×サブスキル補正:${Math.round(subskillspeed * 100) / 100}×おやすみリボン補正:${ribbonspeed}×げんき補正:${energyave}×いいキャンプチケット補正:${campVar}`
 
     counth3.textContent = `おてつだい回数 ${helpingcount}回`
     countp.innerHTML = `睡眠時間:${time}分÷おてつだいスピード:${totalspeed2}分`
