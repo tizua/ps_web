@@ -164,14 +164,23 @@ window.nameinput = () => {
             //おやすみリボン適応じゃなかったら非活性にする
             let ribbon = document.getElementsByName("ribbon");
             let ribbonzero = document.getElementById("ribbonzero");
+            let ribbonlabels = document.getElementsByName("ribbonlabel")
             //おやすみリボン非活性リセット
             for (let i = 0; i < ribbon.length; i++) {
                 ribbon[i].disabled = false;
+            }
+            //カーソルのデザイン変えたりするためのクラス名リセット
+            for (let i = 0; i < ribbonlabels.length; i++) {//まずはリセット
+                ribbonlabels[i].setAttribute("class", "ribbonlabel")
             }
             //もう進化しないポケモンはおやすみリボン非活性化
             if (Orievolutionlimit - Orievolution === 0) {
                 for (let i = 0; i < ribbon.length; i++) {
                     ribbon[i].disabled = true;
+
+                    for (let i = 0; i < ribbonlabels.length; i++) {//カーソルのデザイン変えたりするためのクラス名変える
+                        ribbonlabels[i].setAttribute("class", "OFFribbonlabel")
+                    }
                 }
                 ribbonzero.checked = true; //非活性でもチェックはなしに指しておく
             }
@@ -200,6 +209,8 @@ window.levelinput = () => {
     let ingredient3 = document.getElementById('ingredient3');
     let ingredient2h3 = document.getElementById('ingredient2h3');
     let ingredient3h3 = document.getElementById('ingredient3h3');
+    let ingredient2after = document.getElementById("ingredient2after")
+    let ingredient3after = document.getElementById("ingredient3after")
 
     ingredient2.disabled = false //リセット
     ingredient3.disabled = false
@@ -207,6 +218,8 @@ window.levelinput = () => {
     ingredient3.classList.remove("disabled");
     ingredient2h3.classList.remove("disabledh3");//クラス消す
     ingredient3h3.classList.remove("disabledh3");
+    ingredient2after.setAttribute("class", "select");//クラス元に戻す
+    ingredient3after.setAttribute("class", "select");
 
 
     if (level < 30) {
@@ -216,12 +229,15 @@ window.levelinput = () => {
         ingredient3.disabled = true
         ingredient3.setAttribute("class", "disabled")
         ingredient3h3.setAttribute("class", "disabledh3")
+        ingredient2after.setAttribute("class", "select disabledafter");
+        ingredient3after.setAttribute("class", "select disabledafter");
         Oriingredient123 = 1
 
     } else if (level < 60) {
         ingredient3.disabled = true
         ingredient3.setAttribute("class", "disabled")
         ingredient3h3.setAttribute("class", "disabledh3")
+        ingredient3after.setAttribute("class", "select disabledafter");
         Oriingredient123 = 2
 
     } else {
@@ -705,6 +721,8 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
         let evbclzero = document.getElementById("evbclzero");
         let evbcl1 = document.getElementById("evbcl1");
         let evbcl2 = document.getElementById("evbcl2");
+        let evbcl1label = document.getElementById("evbcl1label");
+        let evbcl2label = document.getElementById("evbcl2label");
 
 
         //進化回数の初期チェック変える
@@ -722,13 +740,18 @@ window.calculationbtn = () => {  //scriptタグにtype="module"がある場合�
         //進化回数非活性にする
         evbcl1.disabled = false; //リセット
         evbcl2.disabled = false;
+        evbcl1label.classList.remove("OFFevbcl")
+        evbcl2label.classList.remove("OFFevbcl")
 
         if (Orievolution === 1) {
             evbcl1.disabled = true;
             evbcl2.disabled = true;
+            evbcl1label.setAttribute("class", "OFFevbcl")
+            evbcl2label.setAttribute("class", "OFFevbcl")
         }
         if (Orievolution === 2) {
             evbcl2.disabled = true;
+            evbcl2label.setAttribute("class", "OFFevbcl")
         }
     }
     bclinput(); //最大所持数の関数発動 

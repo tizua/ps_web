@@ -93,7 +93,6 @@ body {
 
 
 /* スマホのデフォルト設定をリセット */
-
 body {
     -webkit-tap-highlight-color: transparent;
 }
@@ -135,7 +134,6 @@ h2 {
 
 
 /* selectの親のdiv */
-
 .select,
 .speedP,
 .ingredientP {
@@ -153,7 +151,6 @@ h2 {
 
 
 /* select自身 */
-
 select,
 .personality .outer {
     border: none;
@@ -178,7 +175,6 @@ select:focus {
 
 
 /* 重なる見出し */
-
 .select h3,
 .speedP h3,
 .ingredientP h3 {
@@ -195,6 +191,14 @@ select:focus {
     color: #494949;
     /*文字色*/
     background-color: white;
+}
+
+
+
+/* 食材選択非活性処理 */
+.disabled {
+    color: #a2a2a2 !important;
+    /* 上書き最優先 */
 }
 
 .disabledh3 {
@@ -214,6 +218,10 @@ select:focus {
     pointer-events: none;
 }
 
+.disabledafter::after {
+    color: #a2a2a2;
+    /* 疑似要素は同じタグでひとつしか作れないため同じタグなら違うクラスでも.select::afterの色変更ができる*/
+}
 
 
 
@@ -495,8 +503,13 @@ i {
 
 }
 
-.ribbon label {
+.ribbonlabel {
     cursor: pointer;
+}
+
+.OFFribbonlabel {
+    cursor: default;
+    color: #a2a2a2;
 }
 
 .ribbon label:nth-child(1) {
@@ -616,6 +629,7 @@ i {
 
 .other summary {
     margin: 20px 0 20px 0;
+    font-size: 17px;
 }
 
 
@@ -713,6 +727,10 @@ i {
 
 .plusbcl {
     margin-bottom: 20px;
+}
+
+.OFFevbcl {
+    color: #a2a2a2;
 }
 
 .detailslist h3 {
