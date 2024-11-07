@@ -593,7 +593,7 @@ i {
 .modal_container {
     position: fixed;
     inset: 0;
-    margin: 280px auto;
+    margin: 300px auto;
     padding: 50px 30px;
     width: 80%;
     height: 20%;
